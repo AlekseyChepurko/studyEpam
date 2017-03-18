@@ -29,7 +29,7 @@ var path = {
         fonts: 'build/fonts/'
     },
     src: {
-        template: 'src/templates/**/*.jade',
+        template: 'src/templates/*.jade',
         js: 'src/scripts/main.js',
         style: 'src/styles/*.scss',
         img: 'src/img/**/*.*',
@@ -40,7 +40,7 @@ var path = {
         js: 'src/scripts/**/*.js',
         style: 'src/styles/**/*.scss',
         img: 'src/img/**/*.*',
-        fonts: 'src/fonts/**/*.*'
+        fonts: 'src/fonts.scss/**/*.*'
     },
     clean: './build'
 };
