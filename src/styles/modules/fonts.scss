@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'oswald';
+  src: url('../../fonts/Oswald-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin oswald($style: regular){
+  font-family: 'oswald';
+}
+
+@font-face {
+  font-family: 'fontawesome';
+  src: url('../../fonts/fontawesome.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
