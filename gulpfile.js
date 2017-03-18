@@ -13,9 +13,10 @@ var gulp = require('gulp'),
     jade = require('gulp-jade'),
     concat = require('gulp-concat'),
     sourcemaps = require('gulp-sourcemaps'),
-    cssmin = require('gulp-cssnano'),
+    cssnano = require('gulp-cssnano'),
     browserSync = require("browser-sync"),
     clean = require("gulp-clean"),
+    notify = require("gulp-notify"),
     reload = browserSync.reload;
 
 
@@ -28,14 +29,14 @@ var path = {
         fonts: 'build/fonts/'
     },
     src: {
-        template: 'src/template/**/*.jade',
+        template: 'src/templates/**/*.jade',
         js: 'src/scripts/main.js',
         style: 'src/styles/*.scss',
         img: 'src/img/**/*.*',
         fonts: 'src/fonts/**/*.*'
     },
     watch: {
-        html: 'src/template/**/*.jade',
+        html: 'src/templates/**/*.jade',
         js: 'src/scripts/**/*.js',
         style: 'src/styles/**/*.scss',
         img: 'src/img/**/*.*',
@@ -74,22 +75,45 @@ gulp.task('images', function() {
         .pipe(gulp.dest(path.build.img));
 });
 
+gulp.task('fonts', function() {
+    return gulp.src(path.src.fonts)
+        .pipe(gulp.dest(path.build.fonts));
+});
+
 gulp.task('scripts', function() {
     gulp.src('src/js/*.js')
         .pipe(uglify())
         .pipe(gulp.dest(path.build.js));
 });
 
-gulp.task('watch', function() {
+gulp.task('templates', function() {
     return gulp
-    // Watch the input folder for change,
-    // and run `sass` task when something happens
-        .watch(path.watch.style, ['styles'])
-        // When there is a change,
-        // log a message in the console
+        .src(path.src.template)
+        .pipe(jade({ pretty: true }))
+        .on('error', notify.onError(function(error) {
+            console.log(123);
+            return {
+                title: 'Jade',
+                message:  error.message
+            }
+        }))
+        .pipe(gulp.dest(path.build.html));
+});
+
+gulp.task('watch', function() {
+   gulp.watch(path.watch.style, ['styles'])
         .on('change', function(event) {
             console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
         });
+    gulp.watch(path.watch.html, ['templates'])
+        .on('change', function(event) {
+            console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+        });
+    gulp.watch(path.watch.js, ['scripts'])
+        .on('change', function(event) {
+            console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+        });
+    gulp.watch('src/**/**/*.*').on('change', browserSync.reload);
 });
 
 gulp.task('clean', function() {
@@ -97,8 +121,16 @@ gulp.task('clean', function() {
         .pipe(clean());
 });
 
-gulp.task("build",['styles', 'images']);
+gulp.task('browser-sync', function() {
+    return browserSync.init({
+        server: {
+            baseDir: path.build.html
+        }
+    });
+});
+
+gulp.task("build",['templates', 'styles', 'images','scripts', 'fonts']);
 
 gulp.task('default', ['clean' ], function(){
-    gulp.run(['build', 'watch']);
+    gulp.run(['build', 'watch', 'browser-sync']);
 });
