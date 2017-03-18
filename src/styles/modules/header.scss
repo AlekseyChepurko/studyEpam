@@ -1,0 +1,185 @@
+@import "variables";
+@import "fonts";
+
+header {
+  @include oswald();
+  .no_list_style {
+    list-style: none;
+  }
+
+  ul, p
+  {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+
+    li
+    {
+      display: inline-block;
+
+      >a
+      {
+        text-decoration: none;
+        display: block;
+        color: white;
+        margin: 0 26px 0 0;
+        &:last-child
+        {
+          margin: 0 42px 0 0;
+
+        }
+
+        &::first-letter
+        {
+          text-transform: uppercase;
+        }
+      }
+
+    }
+  }
+
+
+  .header__part
+  {
+    margin:0;
+    padding:0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+
+
+    &.logo__block
+    {
+      background-color: $darkGray;
+      min-height: 80px;
+      text-transform: uppercase;
+    }
+  }
+  
+  menu.header__part
+  {
+    background-color: $gray;
+    min-height: 42px;
+    text-transform: uppercase;
+    font-size: 11px;
+
+    >.page__navigation
+    {
+      margin: 0 0 0 26px;
+
+      >li
+      {
+        padding: 8px 13px;
+        transition: all .3s;
+        &:hover
+        {
+          background-color: $blue;
+          color: white;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .page__action
+    {
+      >*
+      {
+        margin: 0 0 0 23px;
+
+        &:before{
+          margin: 0 7px 0 0;
+          font-size: 19px;
+          font-family: 'FontAwesome';
+        }
+      }
+
+      #share:before{
+        content: "\f1e0";
+
+      }
+
+      #follow:before
+      {
+        content: "\f006";
+      }
+
+      #edit:before
+      {
+        content: '\f040';
+      }
+    }
+
+    .page__mode
+    {
+      margin: 0 26px 0 42px;
+
+      #fullscreen:before
+      {
+        font-size: 19px;
+        font-family: 'FontAwesome';
+        content: '\f0b2';
+      }
+    }
+
+  }
+
+  nav.header__part {
+    $navMinHeight: 36px;
+    background-color: $blue;
+    font-size: 17px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: $navMinHeight;
+    p
+    {
+      text-transform: uppercase;
+      padding: 0 0 0 65px;
+      font-family: Oswald;
+    }
+
+    .right__block
+    {
+      >* 
+      {
+        display: inline-block;
+      }
+
+      >.user__fields
+      {
+        background-color: $gray;
+        color: black;
+        padding: 0 0 0 29px;
+        min-width:234px;
+
+        >.name
+        {
+          text-transform: capitalize;
+        }
+      }
+    }
+    }
+
+    >.logo__block
+    {
+      justify-content: flex-start;
+      >.logo__image
+      {
+        max-height: 43px;
+        margin: 0 27px 0 20px;
+      }
+      
+      >p
+      {
+        color: #7be7f8;
+      }
+
+      
+
+    }
+
+
+}
