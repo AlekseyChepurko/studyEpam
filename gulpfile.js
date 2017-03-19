@@ -81,7 +81,7 @@ gulp.task('fonts', function() {
 });
 
 gulp.task('scripts', function() {
-    gulp.src('src/js/*.js')
+    gulp.src(path.src.js)
         .pipe(uglify())
         .pipe(gulp.dest(path.build.js));
 });
