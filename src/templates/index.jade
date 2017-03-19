@@ -1,4 +1,10 @@
 html
     head
         link(href="css/main.css" rel="stylesheet")
-    include modules/header
+        link(href="css/map.css" rel="stylesheet")
+
+    body
+        include modules/header
+        include modules/mapSection
+        script(src="js/main.js")
+        <script (async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjOi2Y7HP1SA3c5YY3gGlfRoubcm9BwrA&callback=initMap") ></script>
