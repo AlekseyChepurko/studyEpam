@@ -1,0 +1,75 @@
+@import "variables";
+.map__section
+{
+  position: relative;
+  height: 670px;
+  //max-height: 670px;
+  width: 70%;
+  margin: auto;
+  #map
+  {
+    height:100%;
+  }
+
+  #map
+  {
+    max-width: 1024px;
+    margin: auto;
+    .gmnoprint, .gm-style>[style= "margin-left: 5px; margin-right: 5px; z-index: 1000000; position: absolute; left: 0px; bottom: 0px;"]
+    {
+      display: none;
+    }
+  }
+
+  .numbers__wraper
+  {
+    position: absolute;
+    bottom: 0;
+    left: 30px;
+    color: $mapGray;
+    text-align: center;
+    font-family: Oswald;
+    max-width: 150px;
+
+    >header
+    {
+      margin: 0 0 20px 0;
+      >.number {
+        font-size: 160px;
+        line-height: 160px;
+        padding: 0 6px;
+      }
+      >.text
+      {
+        text-transform: capitalize;
+        font-size: 18px;
+      }
+    }
+
+    .numbers__content
+    {
+      font-size: 16px;
+      display: flex;
+      text-transform: capitalize;
+
+      #employees:before, #experience:before
+      {
+        padding: 5px;
+        display: inline-block;
+        border: 1px solid $mapGray;
+        border-radius: 50%;
+        font-family: 'FontAwesome';
+        margin: 0 0 15px 0;
+      }
+      #employees:before
+      {
+        content: '';
+      }
+
+      #experience:before
+      {
+        content: '';
+      }
+    }
+  }
+}
