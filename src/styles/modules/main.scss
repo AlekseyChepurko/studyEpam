@@ -164,8 +164,8 @@
   .person__history
   {
     width: 100%;
-    min-width: 880px;
-    border: 1px solid $tableGray;
+    //min-width: 880px;
+    border: 1px solid $tableBorder;
     font-family:Oswald;
 
     nav.tab
@@ -227,19 +227,40 @@
       {
         font-size: 14px;
         font-weight: 700;
-
         *:first-letter
         {
           text-transform: uppercase;
         }
+
+        .underline
+        {
+          height: 2px;
+          background: $tableBorder;
+        }
       }
 
-      .request_col {
+      .request_col
+      {
         min-width: 550px;
       }
 
-      .date_col {
-        max-width: 130px;
+      .date_col .text__wrap
+      {
+        max-width: 170px;
+        box-sizing: border-box;
+        &:after
+        {
+          content: "\f107";
+          font-family: FontAwesome;
+          margin: 0 0 0 10px;
+          //display: inline;
+        }
+        &:hover
+        {
+          color: $blue;
+          cursor: pointer;
+          border-bottom: 2px solid $blue;
+        }
       }
 
       tr
@@ -248,6 +269,29 @@
         td
         {
           padding: 0 15px;
+
+          .state
+          {
+            max-width: 70px;
+            line-height: 20px;
+            font-size: 12px;
+            color: white;
+
+            &:first-letter
+            {
+              text-transform: uppercase;
+            }
+
+            &.rejected
+            {
+              background-color: $rejected;
+            }
+
+            &.allowed
+            {
+              background-color: $green;
+            }
+          }
         }
       }
 
