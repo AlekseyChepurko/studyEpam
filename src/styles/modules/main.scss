@@ -1,0 +1,265 @@
+@import "mixins";
+.content>.main
+{
+  display: flex;
+  margin: 0 0 20px 0;
+
+  .person__info
+  {
+    min-width: 400px;
+    font-family: Oswald;
+    margin: 0 20px 0 0 ;
+
+    input
+    {
+      width: 100%;
+      padding: 10px;
+      margin: 0 0 10px 0;
+      min-height: 40px;
+
+      &::placeholder
+      {
+        font-size: 13px;
+        // TODO replace font
+      }
+    }
+    
+    .location__block
+    {
+      display: flex;
+      margin: 0 0 10px 0;
+      :first-child
+      {
+        margin: 0 8px 0 0;
+      }
+      >*{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: 400;
+        color: white;
+        min-width: 196px;
+        min-height: 60px;
+        
+
+
+        &:before
+        {
+          font-family: FontAwesome;
+          font-size: 36px;
+          margin: 9px;
+        }
+
+        .text__wrap
+        {
+          max-width: 123px;
+        }
+      }
+
+      #movement__block
+      {
+        background-color: $green;
+        
+        &:hover
+        {
+          cursor: pointer;
+        }
+        &:before
+        {
+          content: '';
+        }
+      }
+      #place_search__block
+      {
+        background-color: $purple;
+
+        &:hover
+        {
+          cursor: pointer;
+        }
+        &:before
+        {
+          content: '';
+        }
+      }
+    }
+
+    .office_info__block {
+      border: 1px solid $officeGray;
+      header {
+        line-height: 40px;
+        vertical-align: middle;
+        text-align: center;
+        text-transform: uppercase;
+        background-color: $officeGray;
+        color: white;
+        font-size: 18px;
+        font-weight: 400;
+        margin: 0 0 10px 0;
+      }
+
+      .office_info {
+
+        font-size: 13px;
+        padding: 0 0 0 15px;
+        color: $officeGray;
+
+        ul
+        {
+          @include no-style-list();
+          > li {
+            display: inline-block;
+          }
+        }
+
+        >*
+        {
+          margin: 0 0 10px 0;
+        }
+
+        &:last-child
+        {
+          margin: 0 0 70px 0;
+        }
+
+        .location {
+          text-transform: capitalize;
+          > li:after {
+            content: ">";
+            margin: 0 7px 0 5px;
+          }
+        }
+
+        .floors
+        {
+
+          .name
+          {
+            text-transform: capitalize;
+            margin: 0 0 10px 0;
+          }
+
+          .floor
+          {
+            border: 1px solid $officeGray;
+            border-radius: 50%;
+            width: 17px;
+            text-align: center;
+          }
+        }
+        
+        .room_info>*:first-letter
+        {
+          text-transform: uppercase;
+        }
+      }
+    }
+
+  }
+
+  .person__history
+  {
+    width: 100%;
+    min-width: 880px;
+    border: 1px solid $tableGray;
+    font-family:Oswald;
+
+    nav.tab
+    {
+      background-color: $blue;
+      >.tablink
+      {
+        max-height: 40px;
+        font-family: inherit;
+        border: none;
+        outline: none;
+
+        transition: 0.3s;
+        background-color: inherit;
+        color: white;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 400;
+        //line-height: 40px;
+        padding: 13px 15px;
+        
+        &.active
+        {
+          background-color: white;
+          color: $blue;
+        }
+
+        &:hover
+        {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .tabcontent
+    {
+      display: none;
+      -webkit-animation: fadeEffect 1s;
+      animation: fadeEffect 1s;
+      height: 500px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+    @-webkit-keyframes fadeEffect {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes fadeEffect {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    table{
+      //padding: 0 15px;
+      border-spacing: 0;
+      width: 100%;
+      thead
+      {
+        font-size: 14px;
+        font-weight: 700;
+
+        *:first-letter
+        {
+          text-transform: uppercase;
+        }
+      }
+
+      .request_col {
+        min-width: 550px;
+      }
+
+      .date_col {
+        max-width: 130px;
+      }
+
+      tr
+      {
+        line-height: 40px;
+        td
+        {
+          padding: 0 15px;
+        }
+      }
+
+      >tbody
+      {
+        font-weight: 300;
+        >tr:nth-child(2n+1)
+        {
+          background: $tableGray;
+        }
+      }
+    }
+
+  }
+}

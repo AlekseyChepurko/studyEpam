@@ -1,9 +1,11 @@
-section
+section.main
     section.person__info
         input#person__search(placeholder="Search for a person")
         .location__block
-            #movement__block movement request
-            #place_search__block look for available place
+            #movement__block
+                .text__wrap movement request
+            #place_search__block
+                .text__wrap look for available place
         .office_info__block
             header my office
             .office_info
@@ -12,22 +14,108 @@ section
                     li#city saint-petersburg
                     li#street nab.Chornoy rechki
                 ul.floors
+                    .name floors:
                     li.floor 1
                     li.floor 2
                     li.floor 3
                     li.floor 4
                     li.floor ...
                     li.floor 25
-                #unit unit: 654
-                #room_number number for room: 654
+                .room_info
+                    #unit unit: 654
+                    #room_number number of room: 654
+
 
 
     section.person__history
-        .tab
-            button.tablink(onclick="openTab(event, 'requests')") my requests
+        nav.tab
+            button.tablink(onclick="openTab(event, 'requests')", id="defaultOpen") my requests
             button.tablink(onclick="openTab(event, 'viewed')") recently viewed units
             button.tablink(onclick="openTab(event, 'units')") my units
         .tabcontent#requests
+            table.request_results
+                thead
+                    tr
+                        td.request_colPraesent request
+                        td.date_col date
+                        td.status_col status
+                tr
+                    td.request_col Praesent felis nibh, faucibus et interdum ut
+                    td.date_col 07/24/2015
+                    td.status_col status
+                tr
+                    td.request_col Praesent felis nibh, faucibus et interdum ut
+                    td.date_col 07/24/2015
+                    td.status_col status
+                tr
+                    td.request_col Praesent felis nibh, faucibus et interdum ut
+                    td.date_col 07/24/2015
+                    td.status_col status
+                tr
+                    td.request_col Praesent felis nibh, faucibus et interdum ut
+                    td.date_col 07/24/2015
+                    td.status_col status
+                tr
+                    td.request_col Praesent felis nibh, faucibus et interdum ut
+                    td.date_col 07/24/2015
+                    td.status_col status
+                tr
+                    td.request_col Praesent felis nibh, faucibus et interdum ut
+                    td.date_col 07/24/2015
+                    td.status_col status
+                tr
+                    td.request_col Praesent felis nibh, faucibus et interdum ut
+                    td.date_col 07/24/2015
+                    td.status_col status
+                tr
+                    td.request_col Praesent felis nibh, faucibus et interdum ut
+                    td.date_col 07/24/2015
+                    td.status_col status
+                tr
+                    td.request_col Praesent felis nibh, faucibus et interdum ut
+                    td.date_col 07/24/2015
+                    td.status_col status
+                tr
+                    td.request_col Praesent felis nibh, faucibus et interdum ut
+                    td.date_col 07/24/2015
+                    td.status_col status
+                tr
+                    td.request_col Praesent felis nibh, faucibus et interdum ut
+                    td.date_col 07/24/2015
+                    td.status_col status
+                tr
+                    td.request_col Praesent felis nibh, faucibus et interdum ut
+                    td.date_col 07/24/2015
+                    td.status_col status
+                tr
+                    td.request_col Praesent felis nibh, faucibus et interdum ut
+                    td.date_col 07/24/2015
+                    td.status_col status
+                tr
+                    td.request_col Praesent felis nibh, faucibus et interdum ut
+                    td.date_col 07/24/2015
+                    td.status_col status
+                tr
+                    td.request_col Praesent felis nibh, faucibus et interdum ut
+                    td.date_col 07/24/2015
+                    td.status_col status
+                tr
+                    td.request_col Praesent felis nibh, faucibus et interdum ut
+                    td.date_col 07/24/2015
+                    td.status_col status
+                tr
+                    td.request_col Praesent felis nibh, faucibus et interdum ut
+                    td.date_col 07/24/2015
+                    td.status_col status
+
+
+
+
+
+
+
         .tabcontent#viewed
+            .bla    viewed
         .tabcontent#units
+            .blabla units
 

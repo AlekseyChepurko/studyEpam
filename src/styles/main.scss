@@ -2,6 +2,13 @@ body
 {
   margin: 0;
   padding: 0;
+
+  .content
+  {
+    max-width: 1690px;
+    margin: auto;
+  }
 }
 @import "modules/header";
 @import "modules/map";
+@import "modules/main";
