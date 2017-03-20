@@ -3,6 +3,8 @@
 
 header {
   @include oswald();
+  margin: 0 0 20px 0;
+
   .no_list_style {
     list-style: none;
   }
@@ -143,6 +145,7 @@ header {
 
     .right__block
     {
+      line-height: 36px;
       >* 
       {
         display: inline-block;
