@@ -1,3 +1,68 @@
+@import "modules/mixins";
+html
+{
+
+
+  //@media screen and (min-width: 560px) and (max-width: 768px)
+  //{
+  //  font-size: 30px;
+  //@media screen and (max-width: 559px)
+  //{
+  //  font-size: 45px;
+  //}
+  @include phone
+  {
+    font-size: 45px;
+  }
+  //@include phoneH
+  //{
+  //  font-size: 45px;
+  //}
+
+  @include tablet
+  {
+    font-size: 35px;
+  }
+
+  //@include tabletH
+  //{
+  //  font-size: 35px;
+  //}
+  @include desktop
+{
+    font-size: 16px;
+  }
+
+
+
+
+  //
+  //@media  screen and (max-width: 1200px)
+  //{
+  //  font-size: 16px;
+  //}
+  //@media screen and (max-width: 992px)
+  //{
+  //  font-size: 20px;
+  //}
+  //
+  //@media screen and (max-width: 768px){
+  //  font-size: 35px;
+  //}
+  //@media only screen and (max-width: 560px){
+  //  font-size: 45px;
+  //}
+  //
+  //@media only screen and (max-width: 360px) {
+  //  font-size: 50px;
+  //}
+
+
+
+
+
+}
+
 body
 {
   margin: 0;
