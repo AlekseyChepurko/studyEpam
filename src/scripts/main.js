@@ -519,4 +519,3 @@ for (var i = 0; i < bl; i++ )
         sub_elements.close(this);
     }
 }
-console.log(document.getElementsByClassName("to_show"));
