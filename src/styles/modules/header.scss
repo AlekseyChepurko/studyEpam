@@ -62,9 +62,9 @@ body>header {
       text-transform: uppercase;
     }
   }
-  
-  menu.header__part
-  {
+
+    menu.header__part
+    {
     background-color: $gray;
     min-height: 42px;
     text-transform: uppercase;
@@ -148,7 +148,7 @@ body>header {
     }
   }
 
-  nav.header__part {
+    nav.header__part {
     $navMinHeight: 36px;
     background-color: $blue;
     font-size: 1rem;
@@ -167,7 +167,7 @@ body>header {
     .right__block
     {
       line-height: 36px;
-      >* 
+      >*
       {
         display: inline-block;
       }
@@ -206,7 +206,7 @@ body>header {
               font-family: "FontAwesome";
               margin: 0 15px;
             }
-            
+
             .user_menu_content
             {
               position: absolute;
@@ -270,7 +270,7 @@ body>header {
           }
         }
       }
-      
+
       @include phone
       {
         display: none;
@@ -299,6 +299,12 @@ body>header {
       
 
     }
-
-
+  
+  @include phone
+  {
+    nav.header__part, menu.header__part
+    {
+      display: none;
+    }
+  }
 }
