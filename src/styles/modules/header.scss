@@ -159,10 +159,47 @@ header {
         padding: 0 0 0 29px;
         min-width:234px;
 
+        >*
+        {
+          display: inline-block;
+        }
+
         >.name
         {
           text-transform: capitalize;
+          min-width: 125px;
+
+          &:after
+          {
+            content: '\f0dd';
+            font-family: "FontAwesome";
+            margin: 0 15px;
+          }
         }
+
+        >.settings
+        {
+          &:before
+          {
+            content: '\f013';
+            font-family: "FontAwesome";
+            margin: 0 10px 0 0;
+          }
+        }
+
+        >.questions
+        {
+          &:before
+          {
+            content: '\f059';
+            font-family: "FontAwesome";
+          }
+        }
+      }
+      
+      @include phone
+      {
+        display: none;
       }
     }
     }
