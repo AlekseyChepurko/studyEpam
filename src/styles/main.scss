@@ -4,6 +4,7 @@ html
 {
   //$currentFontSize;
 
+
   @include desktop
 
   {
@@ -37,6 +38,11 @@ body
   {
     max-width: 1690px;
     margin: 200px auto;
+
+    @include phone
+    {
+      margin: 50px auto;
+    }
 
   }
 }
