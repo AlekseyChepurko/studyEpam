@@ -73,6 +73,10 @@ body>header {
     >.page__navigation
     {
       margin: 0 0 0 26px;
+      @include tablet
+      {
+        margin: 0;
+      }
 
       >li
       {
@@ -87,47 +91,61 @@ body>header {
       }
     }
 
-    .page__action
-    {
-      >*
-      {
-        margin: 0 0 0 23px;
+    .right__wrapper {
+      .page__action {
+        > * {
+          margin: 0 0 0 23px;
 
-        &:before{
-          margin: 0 7px 0 0;
-          font-size: 1.7rem;
-          font-family: 'FontAwesome';
+          &:before {
+            margin: 0 7px 0 0;
+            font-size: 1.7em;
+            font-family: 'FontAwesome';
+          }
+        }
+
+        #share:before {
+          content: "\f1e0";
+
+        }
+
+        #follow:before {
+          content: "\f006";
+        }
+
+        #edit:before {
+          content: '\f040';
         }
       }
 
-      #share:before{
-        content: "\f1e0";
+      .page__mode {
+        margin: 0 26px 0 42px;
 
+        #fullscreen:before {
+          font-size: 1.7em;
+          font-family: 'FontAwesome';
+          content: '\f0b2';
+        }
+
+        @include tablet
+        {
+          display: none;
+        }
       }
 
-      #follow:before
-      {
-        content: "\f006";
-      }
-
-      #edit:before
-      {
-        content: '\f040';
-      }
     }
 
-    .page__mode
+    @include tablet
     {
-      margin: 0 26px 0 42px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 0 20px 0;
 
-      #fullscreen:before
-      {
-        font-size: 1.7rem;
-        font-family: 'FontAwesome';
-        content: '\f0b2';
+      >*{
+        margin: 0;
       }
     }
-
   }
 
   nav.header__part {
@@ -160,27 +178,75 @@ body>header {
         color: black;
         padding: 0 0 0 29px;
         min-width:234px;
+        transition: all .3s;
+
 
         >*
         {
           display: inline-block;
         }
 
-        >.name
+        >#user_menu
         {
-          text-transform: capitalize;
-          min-width: 125px;
+          display: none;
 
-          &:after
+          ~.name
           {
-            content: '\f0dd';
-            font-family: "FontAwesome";
-            margin: 0 15px;
+            text-transform: capitalize;
+            min-width: 125px;
+            cursor: pointer;
+            position: relative;
+            &:after
+            {
+              content: '\f0dd';
+              display: inline-block;
+              transform-origin: center;
+              transition: .3s;
+              //line-height: 12px;
+              font-family: "FontAwesome";
+              margin: 0 15px;
+            }
+            
+            .user_menu_content
+            {
+              position: absolute;
+              height: 0;
+              width: 95%;
+              padding: 0 0 0 5%;
+              background-color: $blue;
+              overflow: hidden;
+              transition: all .3s;
+              color: white;
+            }
+          }
+
+          &:checked
+          {
+            ~.name
+            {
+
+              color: $blue;
+              //background-color: $blue;
+              &:after
+              {
+                content: '\f0de';
+              }
+              >.user_menu_content
+              {
+                height: 100px;
+              }
+            }
           }
         }
 
+
         >.settings
         {
+          &:hover
+          {
+            cursor: pointer;
+            color: $blue;
+          }
           &:before
           {
             content: '\f013';
@@ -191,6 +257,12 @@ body>header {
 
         >.questions
         {
+
+          &:hover
+          {
+            cursor: pointer;
+            color: $blue;
+          }
           &:before
           {
             content: '\f059';
@@ -218,6 +290,10 @@ body>header {
       >p
       {
         color: #7be7f8;
+        @include tablet
+        {
+          display: none;
+        }
       }
 
       
