@@ -519,3 +519,32 @@ for (var i = 0; i < bl; i++ )
         sub_elements.close(this);
     }
 }
+
+
+var fullBtn = document.getElementById("fullscreen").onclick = function(){
+
+    var elem = this;
+    var html = document.getElementsByTagName("html")[0];
+    if (elem.requestFullscreen) {
+        html.requestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+        html.msRequestFullscreen();
+    } else if (elem.mozRequestFullScreen) {
+        html.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) {
+        html.webkitRequestFullscreen();
+    }
+
+    // console.log("hi");
+    // var e = new Event("keydown");
+    // e.key="F11";
+    // e.keyCode=122;
+    // e.which=e.keyCode;
+    // e.altKey=false;
+    // e.ctrlKey=true;
+    // e.shiftKey=false;
+    // e.metaKey=false;
+    // // e.bubbles=true;
+    // console.log(document.dispatchEvent(e));
+    // // console.log(e);
+};
