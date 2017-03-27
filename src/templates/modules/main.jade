@@ -2,10 +2,14 @@ section.main
     section.person__info
         input#person__search(placeholder="Search for a person")
         .location__block
-            #movement__block
+            #movement__block.to_show
                 .text__wrap movement request
-            #place_search__block
+            .content__to_show movement content
+                    button.btn__close_subElement close
+            #place_search__block.to_show
                 .text__wrap look for available place
+            .content__to_show place search content
+                    button.btn__close_subElement close
         .office_info__block
             header my office
             .office_info
