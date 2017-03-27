@@ -481,3 +481,42 @@ function openTab(evt, tabName) {
 }
 
 document.getElementById("defaultOpen").click();
+
+var sub_elements = (function () {
+
+    var open = function (el){
+        console.log(el.nextElementSibling);
+        el.nextElementSibling.className += " active";
+    }
+
+    var close = function (el){
+        el.parentNode.className = "content__to_show";
+    }
+
+    return{
+        open: open,
+        close: close,
+    }
+}());
+
+
+var toShows = document.getElementsByClassName("to_show"),
+    l = toShows.length;
+
+for (var i = 0; i < l; i++ )
+{
+    toShows[i].onclick = function () {
+        console.log("-----open-----");
+        sub_elements.open(this);
+    }
+}
+var closeBtns = document.getElementsByClassName("btn__close_subElement"),
+    bl = closeBtns.length;
+for (var i = 0; i < bl; i++ )
+{
+    closeBtns[i].onclick = function () {
+        console.log("-----close-----");
+        sub_elements.close(this);
+    }
+}
+console.log(document.getElementsByClassName("to_show"));
