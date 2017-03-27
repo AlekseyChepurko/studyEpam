@@ -1,39 +1,42 @@
 header
-    nav.header__part
-        p.page__name sharepoint
-        .right__block
-            ul.links.no_list_style
-                li
-                    a(href="#") my sites
-                li
-                    a(href="#") yammer
-                li
-                    a(href="#") oneDrive
-                li
-                    a(href="#") sites
-            .user__fields
-                input(type="checkbox", id="user_menu")
-                label.name(for="user_menu") elizaveta eliseeva
-                    .user_menu_content
-                        ul
-                            li a
-                            li b
-                .settings
-                .questions
-    menu.header__part
-        ul.page__navigation.no_list_style
-            li browse
-            li files
-            li library
-        .right__wrapper
-            ul.page__action.no_list_style
-                li#share share
-                li#follow follow
-                li#edit edit
-            ul.page__mode
-                li#fullscreen
+    .adaptive_menu__wrap
+        nav.header__part
+            p.page__name sharepoint
+            .right__block
+                ul.links.no_list_style
+                    li
+                        a(href="#") my sites
+                    li
+                        a(href="#") yammer
+                    li
+                        a(href="#") oneDrive
+                    li
+                        a(href="#") sites
+                .user__fields
+                    input(type="checkbox", id="user_menu")
+                    label.name(for="user_menu") elizaveta eliseeva
+                        .user_menu_content
+                            ul
+                                li a
+                                li b
+                    .settings
+                    .questions
+        menu.header__part
+            ul.page__navigation.no_list_style
+                li browse
+                li files
+                li library
+            .right__wrapper
+                ul.page__action.no_list_style
+                    li#share share
+                    li#follow follow
+                    li#edit edit
+                ul.page__mode
+                    li#fullscreen
 
 
     .logo__block.header__part
+        .adaptive_menu__toogler_wrap
+            .adaptive_menu__toogler
         img.logo__image(src="img/logo.png")
         p.logo__name office space managment portal
