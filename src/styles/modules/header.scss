@@ -172,6 +172,32 @@ body>header {
         display: inline-block;
       }
 
+
+      >.links a
+      {
+        position: relative;
+
+        &:after
+        {
+          content: '';
+          position: absolute;
+          bottom: 5px;
+          left: 0;
+          background-color: white;
+          opacity: 0;
+          width: 100%;
+          height: 2px;
+        }
+
+        &:hover {
+          &:after
+          {
+            transition: opacity .3s;
+            opacity: 1;
+          }
+        }
+      }
+
       >.user__fields
       {
         background-color: $gray;
@@ -300,7 +326,7 @@ body>header {
 
     }
   
-  @include phone
+  @include tablet
   {
     nav.header__part, menu.header__part
     {
