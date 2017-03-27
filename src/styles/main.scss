@@ -39,6 +39,11 @@ body
     max-width: 1690px;
     margin: 200px auto;
 
+    @include tablet
+    {
+      margin: 50px auto;
+    }
+
     @include phone
     {
       margin: 50px auto;

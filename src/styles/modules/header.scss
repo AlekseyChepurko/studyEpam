@@ -285,7 +285,7 @@ body>header {
 
         >.questions
         {
-
+          padding: 0 10px 0 0;
           &:hover
           {
             cursor: pointer;
@@ -299,10 +299,10 @@ body>header {
         }
       }
 
-      @include phone
-      {
-        display: none;
-      }
+      //@include phone
+      //{
+      //  display: none;
+      //}
     }
     }
 
@@ -313,6 +313,11 @@ body>header {
       {
         max-height: 43px;
         margin: 0 27px 0 20px;
+
+        @include tablet
+        {
+          margin: 0 0 0 50px;
+        }
       }
       
       >p
@@ -328,7 +333,9 @@ body>header {
       {
         display: none;
         background-color: $blue;
-        margin: 0 0 0 10px;
+        //margin: 0 0 0 10px;
+        position: absolute;
+        height: 100%;
         @include tablet
         {
           display: block;
@@ -352,8 +359,12 @@ body>header {
               height: 3px;
             }
 
-            &:after{ top: 6px;}
-            &:before{ top: -6px;}
+            &:after{
+              top: 6px;
+            }
+            &:before{
+              top: -6px;
+            }
           }
         }
       }
@@ -362,9 +373,41 @@ body>header {
   
   @include tablet
   {
-    nav.header__part, menu.header__part
+    .adaptive_menu__wrap
     {
-      display: none;
+      top:-100vh;
+      overflow: hidden;
+      position: fixed;
+      height: 100vh;
+      width: 100%;
+      transition: top .3s;
+      background-color: $gray;
+
+      >nav.header__part
+      {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        >.page__name
+        {
+          padding: 0;
+        }
+
+        >.right__block
+        {
+          text-align: center;
+        }
+      }
+
+
+        &.active {
+          transition: top .3s;
+          top: 0;
+          display: block;
+          //position: fixed;
+        }
     }
+
   }
 }
