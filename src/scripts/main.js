@@ -482,15 +482,45 @@ function openTab(evt, tabName) {
 
 document.getElementById("defaultOpen").click();
 
+
+var classes = (function(){
+    var add = function (cur,classToAdd) {
+        var currentClasses = cur.className;
+        if (currentClasses.indexOf(classToAdd) > -1)
+            return;
+        cur.className += ' '+classToAdd;
+    }
+
+    var remove = function (cur,classToRemove) {
+        cur.className = cur.className.replace(' '+classToRemove, "");
+    }
+
+    var toggle = function (cur, className){
+        var i = cur.className.indexOf(className);
+        if (i > -1)
+        {
+            remove(cur, className);
+            return;
+        }
+
+        add(cur, className);
+    }
+
+    return{
+        add: add,
+        remove: remove,
+        toggle: toggle,
+    }
+}());
+
 var sub_elements = (function () {
 
     var open = function (el){
-        console.log(el.nextElementSibling);
-        el.nextElementSibling.className += " active";
+        classes.add(el.nextElementSibling, "active");
     }
 
     var close = function (el){
-        el.parentNode.className = "content__to_show";
+        classes.remove(el.parentNode, "active")
     }
 
     return{
@@ -506,7 +536,6 @@ var toShows = document.getElementsByClassName("to_show"),
 for (var i = 0; i < l; i++ )
 {
     toShows[i].onclick = function () {
-        console.log("-----open-----");
         sub_elements.open(this);
     }
 }
@@ -515,7 +544,6 @@ var closeBtns = document.getElementsByClassName("btn__close_subElement"),
 for (var i = 0; i < bl; i++ )
 {
     closeBtns[i].onclick = function () {
-        console.log("-----close-----");
         sub_elements.close(this);
     }
 }
@@ -547,4 +575,11 @@ var fullBtn = document.getElementById("fullscreen").onclick = function(){
     // // e.bubbles=true;
     // console.log(document.dispatchEvent(e));
     // // console.log(e);
+};
+
+var adaptiveMenu = document.getElementsByClassName("adaptive_menu__wrap")[0];
+var adaptiveToggler = document.getElementsByClassName("adaptive_menu__toogler")[0].onclick = function()
+{
+    classes.toggle(this, "active");
+    classes.toggle(adaptiveMenu, "active");
 };
