@@ -226,7 +226,7 @@ body>header {
             position: relative;
             &:after
             {
-              content: '\f0dd';
+              content: '\f0d7';
               display: inline-block;
               transform-origin: center;
               transition: .3s;
@@ -257,7 +257,7 @@ body>header {
               //background-color: $blue;
               &:after
               {
-                content: '\f0de';
+                transform: rotateX(180deg);
               }
               >.user_menu_content
               {

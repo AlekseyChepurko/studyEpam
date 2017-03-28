@@ -11,15 +11,68 @@
   color: white;
   position: fixed;
   height: 100%;
+  left: 0;
 
   >.nav_menu__item
   {
     min-width: $navMenuWidth;
     min-height: 50px;
-    padding: 0 0 0 30px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
     font-family: "Oswald";
     text-transform: uppercase;
+    
+    a
+    {
+      display: block;
+      padding: 0 0 0 40px;
+      line-height: 50px;
+      width: 100%;
+      box-sizing: border-box;
+
+      &.dropdown
+      {
+        ~ul
+        {
+          width: 100%;
+          max-height: 0;
+          background-color: $lightBlue;
+          overflow: hidden;
+          transition: all .3s;
+          a
+          {
+            color: $darkGray;
+          }
+        }
+
+        &:after
+        {
+          content: "\f0d7";
+          font-family: "FontAwesome";
+          position: absolute;
+          right: 25px;
+          transition: all .3s;
+        }
+
+        &.active
+        {
+          background-color: $darkBlue;
+          ~ul
+          {
+            transition: all .3s;
+            max-height:500px;
+          }
+
+          &:after
+          {
+            transform: rotateX(180deg);
+          }
+        }
+      }
+
+
+    }
   }
 }

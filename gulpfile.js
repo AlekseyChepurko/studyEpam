@@ -30,7 +30,7 @@ var path = {
     },
     src: {
         template: 'src/templates/*.jade',
-        js: 'src/scripts/main.js',
+        js: 'src/scripts/*.js',
         style: 'src/styles/*.scss',
         img: 'src/img/**/*.*',
         fonts: 'src/fonts/**/*.*'
