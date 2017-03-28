@@ -32,12 +32,22 @@ body
   margin: 0;
   padding: 0;
 
+  ul
+  {
+    padding: 0;
+    margin: 0;
+    li
+    {
+      list-style: none;
+    }
+  }
+
 
 
   .content
   {
     max-width: 1690px;
-    margin: 200px auto;
+    margin: 116px auto;
 
     @include tablet
     {
@@ -54,3 +64,5 @@ body
 @import "modules/header";
 @import "modules/map";
 @import "modules/main";
+
+@import "modules/navMenu";
