@@ -1,20 +1,26 @@
-mixin table(table)
-    //table= {title, thead, tbody}
-    table
+//table= {title, head, body}
+//tclass - class that table will have
+mixin table(table, tclass)
+    table(calss=tclass)
         thead
-            //header=
+            if table.title
+                header(class=tclass + "__header")= table.title
             tr
-                td.request_col request
-                td.date_col
-                    .text__wrap date
-                td.status_col(align="center") status
+                each val, index in table.head
+                    if val.value
+                        td(class="table__head_item " + index)
+                            .text__wrap= val.value
+                    else
+                        td(class="table__head_item " + index)= val
             tr
-                td.underline
-                td.underline
-                td.underline
+                each val in table.head
+                    td.underline
         tbody
-            tr
-                td Praesent felis nibh, faucibus et interdum ut
-                td 07/24/2015
-                td(align="center")
-                    .state.rejected rejected
+            each row in table.body
+                tr
+                    each col in row
+                        if col.state
+                            td(align="center")
+                                div(class="state "+ col.state)= col.state
+                        else
+                            td= col

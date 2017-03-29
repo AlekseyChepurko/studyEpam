@@ -1,10 +1,21 @@
+include tableTemplate
 section.page_content
     .document_actions
         button.create__document create document
         button.attach__document attach document
     input#main__search(placeholder="search")
 
-    // to use table template mixin set this values and send t to table(t)
-    -var thead = {};
-    -var tbody = {};
-    - var t = {title: 'some header', head: thead, body: tbody };
+    article.table_conten
+        // to use table template mixin set this values and send t to table(t)
+        - var theadColumns = {wrap1:{value:"text1"}, first_class:"one", second_class:"second", wrap2:{value:"text2"} };
+        - var tbodyRows = [ ["adiN", "DvA", "Try", {state: "allowed"}] ];
+        - var t = {title: 'some header', head: theadColumns, body: tbodyRows };
+
+        // table(table, tableClassName)
+        +table(t)
+
+    article.table__content
+        - var theadColumns = {wrap1:{value:"text1"}, first_class:"one", second_class:"second", wrap2:{value:"text2"} };
+        - var tbodyRows = [ ["adiN", "DvA", "Try", {state: "allowed"}] ];
+        - var t = {title: 'some header', head: theadColumns, body: tbodyRows };
+        +table(t, "newTableClass")
