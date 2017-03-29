@@ -42,8 +42,6 @@ body
     }
   }
 
-
-
   .content
   {
     max-width: 1690px;
@@ -51,12 +49,12 @@ body
 
     @include tablet
     {
-      margin: 50px auto;
+      margin: 37px auto;
     }
 
     @include phone
     {
-      margin: 50px auto;
+      margin: 37px auto;
     }
 
   }
@@ -64,5 +62,3 @@ body
 @import "modules/header";
 @import "modules/map";
 @import "modules/main";
-
-@import "modules/navMenu";
