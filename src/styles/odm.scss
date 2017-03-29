@@ -1,0 +1,60 @@
+@import "modules/mixins";
+@import "modules/variables";
+html
+{
+  @include desktop
+  {
+    font-size: $desktopFontSize;
+  }
+  @include laptop
+  {
+    font-size: $laptopFontSize;
+  }
+
+  @include tablet
+  {
+    font-size: $tabletFontSize;
+  }
+
+  @include phone
+  {
+    font-size: $phoneFontSize;
+  }
+
+}
+
+body
+{
+  margin: 0;
+  padding: 0;
+
+  ul
+  {
+    padding: 0;
+    margin: 0;
+    li
+    {
+      list-style: none;
+    }
+  }
+
+  .content
+  {
+    max-width: 1690px;
+    margin: 116px auto;
+
+    @include tablet
+    {
+      margin: 37px auto;
+    }
+
+    @include phone
+    {
+      margin: 37px auto;
+    }
+
+  }
+}
+@import "modules/header";
+@import "modules/navMenu";
+@import "modules/odmMainSection";
