@@ -1,0 +1,20 @@
+mixin table(title, head, rows)
+
+    table
+        thead
+            header= title
+            tr
+                td.request_col request
+                td.date_col
+                    .text__wrap date
+                td.status_col(align="center") status
+            tr
+                td.underline
+                td.underline
+                td.underline
+        tbody
+            tr
+                td Praesent felis nibh, faucibus et interdum ut
+                td 07/24/2015
+                td(align="center")
+                    .state.rejected rejected

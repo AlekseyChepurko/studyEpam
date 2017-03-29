@@ -1,0 +1,59 @@
+body {
+  .content {
+    margin-left: $navMenuWidth;
+    button
+    {
+      border: 0;
+      font-size: .7rem;
+      padding: 5px;
+      margin: 0;
+      color: white;
+
+      &.create__document
+      {
+        background-color: $green;
+        &:before
+        {
+          content: "\f016";
+          font-family: "FontAwesome";
+        }
+      }
+
+      &.attach__document
+      {
+        background-color: $yellow;
+        &:before
+        {
+          content: "\f0c6";
+          font-family: "fontawesome";
+        }
+      }
+
+      &:first-letter
+      {
+        text-transform: uppercase;
+      }
+      &:after
+      {
+        content: '\f0d7';
+        font-family: "fontawesome";
+      }
+    }
+
+    >section.page_content
+    {
+      padding: 15px;
+
+      .document_actions
+      {
+        display: inline-block;
+      }
+
+      input#main__search
+      {
+        float: right;
+        padding: 5px;
+      }
+    }
+  }
+}
