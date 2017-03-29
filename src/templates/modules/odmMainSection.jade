@@ -3,3 +3,8 @@ section.page_content
         button.create__document create document
         button.attach__document attach document
     input#main__search(placeholder="search")
+
+    // to use table template mixin set this values and send t to table(t)
+    -var thead = {};
+    -var tbody = {};
+    - var t = {title: 'some header', head: thead, body: tbody };
