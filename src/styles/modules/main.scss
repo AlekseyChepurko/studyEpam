@@ -1,5 +1,7 @@
 @import "mixins";
 @import "variables";
+@import "mixinTable";
+@import "mixinTabs";
 
 .content>.main
 {
@@ -252,159 +254,163 @@
     border: 1px solid $tableBorder;
     font-family:Oswald;
 
+    @include tabs;
 
-    nav.tab
-    {
-      background-color: $blue;
-      >.tablink
-      {
-        font-family: inherit;
-        border: none;
-        outline: none;
-        transition: 0.3s;
-        background-color: inherit;
-        color: white;
-        text-transform: uppercase;
-        font-size: 1rem;
-        font-weight: 400;
-        margin: 0;
-        padding: 13px 15px;
-        
-        &.active
-        {
-          background-color: white;
-          color: $blue;
-        }
+    //nav.tab
+    //{
+    //  background-color: $blue;
+    //  >.tablink
+    //  {
+    //    font-family: inherit;
+    //    border: none;
+    //    outline: none;
+    //    transition: 0.3s;
+    //    background-color: inherit;
+    //    color: white;
+    //    text-transform: uppercase;
+    //    font-size: 1rem;
+    //    font-weight: 400;
+    //    margin: 0;
+    //    padding: 13px 15px;
+    //
+    //    &.active
+    //    {
+    //      background-color: white;
+    //      color: $blue;
+    //    }
+    //
+    //    &:hover
+    //    {
+    //      cursor: pointer;
+    //    }
+    //
+    //    @include phone
+    //    {
+    //      font-size: 0.5rem;
+    //    }
+    //  }
+    //
+    //  @include phone
+    //  {
+    //    //text-align: center;
+    //  }
+    //}
+    //
+    //.tabcontent
+    //{
+    //  display: none;
+    //  -webkit-animation: fadeEffect 1s;
+    //  animation: fadeEffect 1s;
+    //  height: 500px;
+    //  overflow: auto;
+    //}
+    //@-webkit-keyframes fadeEffect {
+    //  from {opacity: 0;}
+    //  to {opacity: 1;}
+    //}
+    //
+    //@keyframes fadeEffect {
+    //  from {opacity: 0;}
+    //  to {opacity: 1;}
+    //}
 
-        &:hover
-        {
-          cursor: pointer;
-        }
+    @include table;
 
-        @include phone
-        {
-          font-size: 0.5rem;
-        }
-      }
-      
-      @include phone
-      {
-        //text-align: center;
-      }
-    }
-
-    .tabcontent
-    {
-      display: none;
-      -webkit-animation: fadeEffect 1s;
-      animation: fadeEffect 1s;
-      height: 500px;
-      overflow: auto;
-    }
-    @-webkit-keyframes fadeEffect {
-      from {opacity: 0;}
-      to {opacity: 1;}
-    }
-
-    @keyframes fadeEffect {
-      from {opacity: 0;}
-      to {opacity: 1;}
-    }
-
-    table{
-      //padding: 0 15px;
-      border-spacing: 0;
-      width: 100%;
-      thead
-      {
-        font-size: 1.3rem;
-        font-weight: 700;
-        *:first-letter
-        {
-          text-transform: uppercase;
-        }
-
-        .underline
-        {
-          height: 2px;
-          background: $tableBorder;
-        }
-
-        @include phone
-        {
-          font-size: 0.75rem;
-        }
-      }
-
-      .request_col
-      {
-        //min-width: 550px;
-
-        width: 100%;
-      }
-
-      .date_col .text__wrap
-      {
-        max-width: 170px;
-        box-sizing: border-box;
-        &:after
-        {
-          content: "\f107";
-          font-family: FontAwesome;
-          margin: 0 0 0 10px;
-          //display: inline;
-        }
-        border-bottom: 2px solid transparent;
-        transition: all .3s;
-        &:hover
-        {
-          border-bottom: 2px solid $blue;
-          color: $blue;
-          cursor: pointer;
-        }
-      }
-
-      tr
-      {
-        line-height: 40px;
-        td
-        {
-          padding: 0 15px;
-
-          .state
-          {
-            max-width: 70px;
-            line-height: 20px;
-            font-size: .75rem;
-            color: white;
-
-            &:first-letter
-            {
-              text-transform: uppercase;
-            }
-
-            &.rejected
-            {
-              background-color: $rejected;
-            }
-
-            &.allowed
-            {
-              background-color: $green;
-            }
-          }
-        }
-      }
-
-      >tbody
-      {
-        font-weight: 300;
-        >tr:nth-child(2n+1)
-        {
-          background: $tableGray;
-        }
-      }
-    }
+    //table
+    //{
+    //  //padding: 0 15px;
+    //  border-spacing: 0;
+    //  width: 100%;
+    //  thead
+    //  {
+    //    font-size: 1.3rem;
+    //    font-weight: 700;
+    //    *:first-letter
+    //    {
+    //      text-transform: uppercase;
+    //    }
+    //
+    //    .underline
+    //    {
+    //      height: 2px;
+    //      background: $tableBorder;
+    //    }
+    //
+    //    @include phone
+    //    {
+    //      font-size: 0.75rem;
+    //    }
+    //  }
+    //
+    //  .request_col
+    //  {
+    //    //min-width: 550px;
+    //
+    //    width: 100%;
+    //  }
+    //
+    //  .date_col .text__wrap
+    //  {
+    //    max-width: 170px;
+    //    box-sizing: border-box;
+    //    &:after
+    //    {
+    //      content: "\f107";
+    //      font-family: FontAwesome;
+    //      margin: 0 0 0 10px;
+    //      //display: inline;
+    //    }
+    //    border-bottom: 2px solid transparent;
+    //    transition: all .3s;
+    //    &:hover
+    //    {
+    //      border-bottom: 2px solid $blue;
+    //      color: $blue;
+    //      cursor: pointer;
+    //    }
+    //  }
+    //
+    //  tr
+    //  {
+    //    line-height: 40px;
+    //    td
+    //    {
+    //      padding: 0 15px;
+    //
+    //      .state
+    //      {
+    //        max-width: 70px;
+    //        line-height: 20px;
+    //        font-size: .75rem;
+    //        color: white;
+    //
+    //        &:first-letter
+    //        {
+    //          text-transform: uppercase;
+    //        }
+    //
+    //        &.rejected
+    //        {
+    //          background-color: $rejected;
+    //        }
+    //
+    //        &.allowed
+    //        {
+    //          background-color: $green;
+    //        }
+    //      }
+    //    }
+    //  }
+    //
+    //  >tbody
+    //  {
+    //    font-weight: 300;
+    //    >tr:nth-child(2n+1)
+    //    {
+    //      background: $tableGray;
+    //    }
+    //  }
+    //}
 
   }
 }
