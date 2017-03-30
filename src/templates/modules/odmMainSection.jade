@@ -5,17 +5,41 @@ section.page_content
         button.attach__document attach document
     input#main__search(placeholder="search")
 
-    article.table_conten
-        // to use table template mixin set this values and send t to table(t)
-        - var theadColumns = {wrap1:{value:"text1"}, first_class:"one", second_class:"second", wrap2:{value:"text2"} };
-        - var tbodyRows = [ ["adiN", "DvA", "Try", {state: "allowed"}] ];
-        - var t = {title: 'some header', head: theadColumns, body: tbodyRows };
+    section.tab__wrap
+        nav.tab
+            button.tablink(onclick="openTab(event, 'approval')", id="defaultOpen") created by me
+            button.tablink(onclick="openTab(event, 'created')") under my approval
+            button.tablink(onclick="openTab(event, 'sent')") sent for group
+        .tabcontent#approval created
+        .tabcontent#created
+            article.table__content
+                // to use table template mixin set this values and send t to table(t)
+                //- var theadColumns = {wrap1:{value:"text1"}, first_class:"one", second_class:"second", wrap2:{value:"text2"} };
+                - var theadColumns = {}
+                -theadColumns.wrap1 = {value:"text1"}
+                -theadColumns.first_class = "one"
+                -theadColumns.second_class = "second"
+                -theadColumns.wrap2 = {value:"text2"}
 
-        // table(table, tableClassName)
-        +table(t)
+                - var tbodyRows = []
+                -tbodyRows.push([ "adiN", "DvA", "Try", { state: "allowed" }] )
+                -tbodyRows.push([ "adiN", "DvA", "Try", { state: "allowed" }] )
+                -tbodyRows.push([ "adiN", "DvA", "Try", { state: "allowed" }] )
+                -tbodyRows.push([ "adiN", "DvA", "Try", { state: "allowed" }] )
+                -tbodyRows.push([ "adiN", "DvA", "Try", { state: "allowed" }] )
+                -tbodyRows.push([ "adiN", "DvA", "Try", { state: "allowed" }] )
+                -tbodyRows.push([ "adiN", "DvA", "Try", { state: "allowed" }] )
+                -tbodyRows.push([ "adiN", "DvA", "Try", { state: "allowed" }] )
 
-    article.table__content
-        - var theadColumns = {wrap1:{value:"text1"}, first_class:"one", second_class:"second", wrap2:{value:"text2"} };
-        - var tbodyRows = [ ["adiN", "DvA", "Try", {state: "allowed"}] ];
-        - var t = {title: 'some header', head: theadColumns, body: tbodyRows };
-        +table(t, "newTableClass")
+
+                - var t = {title: 'some header ', head: theadColumns, body: tbodyRows };
+
+                // table(table, tableClassName)
+                +table(t)
+
+            article.table__content
+                - var theadColumns = {wrap1:{value:"text1"}, first_class:"one", second_class:"second", wrap2:{value:"text2"} };
+                - var tbodyRows = [ ["adiN", "DvA", "Try", {state: "allowed"}] ];
+                - var t = {title: 'some header', head: theadColumns, body: tbodyRows };
+                +table(t, "newTableClass")
+        .tabcontent#sent sent
