@@ -1,3 +1,6 @@
+@import "mixinTable";
+@import "mixinTabs";
+
 body {
   .content {
     margin-left: $navMenuWidth;
@@ -7,6 +10,7 @@ body {
       font-size: .7rem;
       padding: 5px;
       margin: 0;
+      outline: none;
       color: white;
 
       &.create__document
@@ -33,27 +37,50 @@ body {
       {
         text-transform: uppercase;
       }
-      &:after
-      {
-        content: '\f0d7';
-        font-family: "fontawesome";
-      }
     }
 
     >section.page_content
     {
       padding: 15px;
+      font-family: "Oswald";
 
       .document_actions
       {
         display: inline-block;
         margin: 0 0 15px 0;
+        font-family: 'Source Sans Pro', sans-serif;
       }
 
       input#main__search
       {
         float: right;
         padding: 5px;
+      }
+
+      >.tab__wrap
+      {
+        border: 1px solid $tableBorder;
+
+        @include tabs
+        {
+          nav.tab
+          {
+            background-color: $tabGray;
+
+            >.tablink.active
+            {
+              color: $tabGray;
+            }
+          }
+        }
+
+        > .tabcontent
+        {
+          >.table__content
+          {
+            @include table;
+          }
+        }
       }
     }
   }
