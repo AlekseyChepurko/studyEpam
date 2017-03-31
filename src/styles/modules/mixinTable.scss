@@ -1,3 +1,5 @@
+@import "mixins";
+
 @mixin table {
   font-family: 'Source Sans Pro', sans-serif;
   flex-flow: column;
@@ -78,6 +80,86 @@
       font-weight: 300;
       > tr:nth-child(2n+1) {
         background: $tableGray;
+      }
+    }
+  }
+
+  @include tablet
+  {
+    table
+    {
+      display: flex;
+      flex-direction: row;
+      border-bottom: solid 1px $tableBorder;
+
+      thead
+      {
+        width: 25%;
+        border-right: 1px solid $tableBorder;
+        @include phone
+        {
+          width: 40%;
+        }
+
+        >tr
+        {
+          display: none;
+        }
+        >tr:first-child
+        {
+          display: flex;
+          flex-direction: column;
+          text-align: left;
+          >th
+          {
+            padding: 0 0 0 5px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+
+            &:nth-child(2n+1)
+            {
+              background-color: $tableGray;
+            }
+          }
+        }
+      }
+
+      tbody
+      {
+        width: 75%;
+        overflow: auto;
+        display: flex;
+        flex-direction: row;
+        @include phone
+        {
+          width: 60%;
+        }
+
+        >tr
+        {
+          display: flex;
+          flex-direction: column;
+          background-color: transparent;
+          line-height: normal;
+
+          >td
+          {
+            height: 50px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            &:nth-child(2n+1)
+            {
+              background-color: $tableGray;
+            }
+
+            >.state
+            {
+              padding: 0 5px;
+            }
+          }
+        }
       }
     }
   }
