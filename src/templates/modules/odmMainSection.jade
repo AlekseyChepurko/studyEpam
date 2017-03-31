@@ -7,39 +7,48 @@ section.page_content
 
     section.tab__wrap
         nav.tab
-            button.tablink(onclick="openTab(event, 'approval')", id="defaultOpen") created by me
-            button.tablink(onclick="openTab(event, 'created')") under my approval
+            button.tablink(onclick="openTab(event, 'created')") created by me
+            button.tablink#defaultOpen(onclick="openTab(event, 'approval')") under my approval
             button.tablink(onclick="openTab(event, 'sent')") sent for group
-        .tabcontent#approval created
-        .tabcontent#created
-            article.table__content
-                // to use table template mixin set this values and send t to table(t)
-                //- var theadColumns = {wrap1:{value:"text1"}, first_class:"one", second_class:"second", wrap2:{value:"text2"} };
-                - var theadColumns = {}
-                -theadColumns.wrap1 = {value:"text1"}
-                -theadColumns.first_class = "one"
-                -theadColumns.second_class = "second"
-                -theadColumns.wrap2 = {value:"text2"}
+        .tabcontent#created created
+        .tabcontent#approval
+            // to use table template mixin set this values and send t to table(t)
+            //- var theadColumns = {wrap:{value:"text1"}, first_class:"one", second_class:"second", wrap:{value:"text2"} };
+            -
+                var theadColumns = {
+                date: {value:"incoming date"},
+                first_class: "incoming number",
+                second_class: "external doc. index",
+                wrap2: {value:"external doc. type"},
+                type: "type",
+                theme: "theme",
+                send_form: "send from",
+                send_to: "send to",
+                executor: "executor",
+                execution_date: "execution date",
+                state: "execution mark",
+                actions: "actions"
+                }
+            -
+                var tbodyRows = [
+                    [ "07/15/2015", "01-01/6", "01-01", "07/15/2015", "Letter", "Whatever", "Organization 1", "EPAM","iavn ivanov","15/15/2015", { state: "allowed" }, ""],
+                    [ "07/15/2015", "01-01/6", "01-01", "07/15/2015", "Letter", "Whatever", "Organization 1", "EPAM","iavn ivanov","15/15/2015", { state: "allowed" }, ""],
+                    [ "07/15/2015", "01-01/6", "01-01", "07/15/2015", "Letter", "Whatever", "Organization 1", "EPAM","iavn ivanov","15/15/2015", { state: "allowed" }, ""],
 
-                - var tbodyRows = []
-                -tbodyRows.push([ "adiN", "DvA", "Try", { state: "allowed" }] )
-                -tbodyRows.push([ "adiN", "DvA", "Try", { state: "allowed" }] )
-                -tbodyRows.push([ "adiN", "DvA", "Try", { state: "allowed" }] )
-                -tbodyRows.push([ "adiN", "DvA", "Try", { state: "allowed" }] )
-                -tbodyRows.push([ "adiN", "DvA", "Try", { state: "allowed" }] )
-                -tbodyRows.push([ "adiN", "DvA", "Try", { state: "allowed" }] )
-                -tbodyRows.push([ "adiN", "DvA", "Try", { state: "allowed" }] )
-                -tbodyRows.push([ "adiN", "DvA", "Try", { state: "allowed" }] )
 
+                ]
+            - var t = {title: 'incoming documents', head: theadColumns, body: tbodyRows };
+            +table(t)
 
-                - var t = {title: 'some header ', head: theadColumns, body: tbodyRows };
-
-                // table(table, tableClassName)
-                +table(t)
-
-            article.table__content
-                - var theadColumns = {wrap1:{value:"text1"}, first_class:"one", second_class:"second", wrap2:{value:"text2"} };
-                - var tbodyRows = [ ["adiN", "DvA", "Try", {state: "allowed"}] ];
-                - var t = {title: 'some header', head: theadColumns, body: tbodyRows };
-                +table(t, "newTableClass")
+            - var theadColumns = {wrap1:{value:"text1"}, first_class:"one", second_class:"second", wrap2:{value:"text2"} };
+            -
+                var tbodyRows = [
+                    ["adiN", "DvA", "Try", {state: "allowed"}],
+                    ["adiN", "DvA", "Try", {state: "allowed"}],
+                    ["adiN", "DvA", "Try", {state: "allowed"}],
+                    ["adiN", "DvA", "Try", {state: "allowed"}],
+                    ["adiN", "DvA", "Try", {state: "allowed"}],
+                ]
+            - var t = {title: 'some header', head: theadColumns, body: tbodyRows };
+            +table(t, "newTableClass")
         .tabcontent#sent sent
