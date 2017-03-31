@@ -76,10 +76,7 @@ body {
 
         > .tabcontent
         {
-          >.table__content
-          {
-            @include table;
-          }
+          @include table;
         }
       }
     }
