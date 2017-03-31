@@ -1,8 +1,12 @@
 include tableTemplate
 section.page_content
     .document_actions
-        button.create__document create document
-        button.attach__document attach document
+        button.create__document
+            .button__text create document
+            .button__content bla
+        button.attach__document
+            .button__text attach document
+            .button__content bla bla
     input#main__search(placeholder="search")
 
     section.tab__wrap
@@ -34,7 +38,8 @@ section.page_content
                     [ "07/15/2015", "01-01/6", "01-01", "07/15/2015", "Letter", "Whatever", "Organization 1", "EPAM","iavn ivanov","15/15/2015", { state: "allowed" }, ""],
                     [ "07/15/2015", "01-01/6", "01-01", "07/15/2015", "Letter", "Whatever", "Organization 1", "EPAM","iavn ivanov","15/15/2015", { state: "allowed" }, ""],
                     [ "07/15/2015", "01-01/6", "01-01", "07/15/2015", "Letter", "Whatever", "Organization 1", "EPAM","iavn ivanov","15/15/2015", { state: "allowed" }, ""],
-
+                    [ "07/15/2015", "01-01/6", "01-01", "07/15/2015", "Letter", "Whatever", "Organization 1", "EPAM","iavn ivanov","15/15/2015", { state: "allowed" }, ""],
+                    [ "07/15/2015", "01-01/6", "01-01", "07/15/2015", "Letter", "Whatever", "Organization 1", "EPAM","iavn ivanov","15/15/2015", { state: "allowed" }, ""],
 
                 ]
             - var t = {title: 'incoming documents', head: theadColumns, body: tbodyRows };

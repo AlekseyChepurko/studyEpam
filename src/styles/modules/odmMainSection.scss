@@ -4,6 +4,10 @@
 body {
   .content {
     margin-left: $navMenuWidth;
+    @include laptop
+    {
+      margin-left: 0;
+    }
     button
     {
       border: 0;
@@ -12,30 +16,41 @@ body {
       margin: 0;
       outline: none;
       color: white;
+      background-color: transparent;
 
-      &.create__document
+      >.button__text
       {
-        background-color: $green;
-        &:before
-        {
-          content: "\f016";
-          font-family: "FontAwesome";
-        }
+        padding: 5px;
+
       }
 
-      &.attach__document
+      >.button__content
       {
-        background-color: $yellow;
-        &:before
+        color: black;
+        text-align: left;
+      }
+      
+      &.create__document {
+        >.button__text
         {
-          content: "\f0c6";
-          font-family: FontAwesome;
+          background-color: $green;
+          &:before {
+            content: "\f016";
+            font-family: "FontAwesome";
+          }
         }
       }
-
-      &:first-letter
-      {
-        text-transform: uppercase;
+      
+      &.attach__document {
+        >.button__text
+        {
+          background-color: $yellow;
+          &:before
+          {
+            content: "\f0c6";
+            font-family: FontAwesome;
+          }
+        }
       }
     }
 
@@ -55,6 +70,13 @@ body {
       {
         float: right;
         padding: 5px;
+
+        @include phone
+        {
+          float: none;
+          width: 100%;
+          margin: 0 0 10px 0;
+        }
       }
 
       >.tab__wrap
