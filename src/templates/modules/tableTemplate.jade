@@ -8,10 +8,10 @@ mixin table(table, tclass)
             tr
                 each val, index in table.head
                     if val.value
-                        td(class="table__head_item " + index)
+                        th(class="table__head_item " + index)
                             .text__wrap= val.value
                     else
-                        td(class="table__head_item " + index)= val
+                        th(class="table__head_item " + index)= val
             tr
                 each val in table.head
                     td.underline
