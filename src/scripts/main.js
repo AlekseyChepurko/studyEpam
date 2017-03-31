@@ -135,3 +135,9 @@ for (var i=0; i<dropDownCount; i++)
         classes.toggle(this, "active");
     }
 }
+
+var navMenuTogler = document.getElementById("nav_menu__togler");
+
+navMenuTogler.onclick = function () {
+    classes.toggle(this.parentElement, "active");
+}
