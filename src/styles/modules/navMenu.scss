@@ -14,6 +14,9 @@
 
   .nav_menu {
 
+    max-height: 100vh;
+    overflow: auto;
+
     > .nav_menu__item {
       min-width: $navMenuWidth;
       min-height: 50px;
