@@ -1,32 +1,38 @@
 @mixin table {
+  font-family: 'Source Sans Pro', sans-serif;
+  flex-flow: column;
+  >header
+  {
+    padding: 15px 0 0 18px;
+    text-transform: uppercase;
+    font-weight: 300;
+    color: $tabGray;
+    font-size: 1.3rem;
+  }
   table {
     //padding: 0 15px;
     border-spacing: 0;
     width: 100%;
     thead {
-      font-size: 1.3rem;
-      font-weight: 700;
+      font-size: .7rem;
+      //font-weight: 700;
+      font-weight:bold;
       *:first-letter {
         text-transform: uppercase;
       }
-
       .underline {
         height: 2px;
         background: $tableBorder;
       }
-
       @include phone {
         font-size: 0.75rem;
       }
     }
-
     .request_col {
       //min-width: 550px;
-
       width: 100%;
     }
-
-    .date_col .text__wrap {
+    .text__wrap {
       max-width: 170px;
       box-sizing: border-box;
       &:after {
@@ -43,34 +49,32 @@
         cursor: pointer;
       }
     }
-
     tr {
-      line-height: 40px;
+      //line-height: 40px;
       td {
         padding: 0 15px;
-
         .state {
           max-width: 70px;
           line-height: 20px;
           font-size: .75rem;
           color: white;
-
           &:first-letter {
             text-transform: uppercase;
           }
-
           &.rejected {
             background-color: $rejected;
           }
-
           &.allowed {
             background-color: $green;
           }
         }
       }
     }
-
     > tbody {
+      tr
+      {
+        line-height: 40px;
+      }
       font-weight: 300;
       > tr:nth-child(2n+1) {
         background: $tableGray;
