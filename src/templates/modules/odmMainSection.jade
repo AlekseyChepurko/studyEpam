@@ -63,7 +63,10 @@ section.page_content
         .tabcontent#created created
         .tabcontent#approval
             // to use table template mixin set this values and send t to table(t)
-            //- var theadColumns = {wrap:{value:"text1"}, first_class:"one", second_class:"second", wrap:{value:"text2"} };
+            //- var theadColumns = {wrap:{value:"text1"}, first_class:"one" };
+            //-var thdeadBody = ["value", {className: "wrapped div with className"}]
+            //-var t = {title:"title text", head:theadColumns, body:theadBody}
+            //+table(t, "tables className")
             -
                 var theadColumns = {
                     date: {value:"incoming date"},
@@ -95,7 +98,7 @@ section.page_content
             -
                 var tbodyRows = [
                     ["adiN", "DvA", "Try", {state: "changed"}],
-                ["adiN", "DvA", "Try", {state: "deleted<"}],
+                ["adiN", "DvA", "Try", {state: "deleted"}],
                     ["adiN", "DvA", "Try", {state: "allowed"}],
                     ["adiN", "DvA", "Try", {state: "allowed"}],
                     ["adiN", "DvA", "Try", {state: "allowed"}],
