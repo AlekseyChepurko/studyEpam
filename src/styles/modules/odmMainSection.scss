@@ -20,13 +20,15 @@ body {
       color: white;
       background-color: transparent;
       box-sizing: border-box;
-
+      @include phone
+      {
+        width: 100%;
+      }
       >.button__text
       {
         padding: 5px;
         min-width:inherit;
         box-sizing: border-box;
-
       }
 
       >.button__content
@@ -62,20 +64,97 @@ body {
       {
         >.button__content
         {
-          max-height: 0px;
-          overflow: hidden;
           position: absolute;
           max-width: 190px;
-          transition: max-height .3s;
           background-color: white;
-          >.document__types
+
+          ul
           {
-            margin: 5px 0 0 0;
-            >.document__type
+            max-height: 0px;
+            overflow: hidden;
+            border: 0px solid $tableBorder;
+            transition: max-height .3s;
+            li
             {
               min-width: 190px;
               padding: 12px 0 6px 20px;
               box-sizing: border-box;
+              background-color: white;
+              &:first-letter
+              {
+                text-transform: uppercase;
+              }
+            }
+
+            .hover_dropdown
+            {
+              >ul
+              {
+                position: absolute;
+                left: 100%;
+                top: 100%;
+                max-width: 0;
+                background-color: inherit;
+                color: black;
+                z-index: inherit;
+                transition: all .3s;
+                @include phone
+                {
+                  position: relative;
+                  left:0;
+                  top: 0;
+                }
+
+                .dropdown_item {
+                  background-color: white;
+                }
+
+                >li:hover
+                {
+                  color: white;
+                  background-color: inherit;
+                }
+              }
+
+              &:hover
+              {
+                ul
+                {
+                  top: 0;
+                  max-height: none;
+                  max-width: none;
+                  transition: all .3s;
+                  min-width: 250px;
+                  border-width: 1px;
+                  @include phone
+                  {
+                    max-width:0;
+                  }
+                }
+              }
+              &:after
+              {
+                font-family: FontAwesome;
+                float: right;
+                text-transform: none;
+                margin-right: 20px;
+                content: '\f105';
+                @include phone
+                {
+                  content: '\f107';
+                }
+              }
+            }
+          }
+
+          >.document__types
+          {
+            //margin: 5px 0 0 0;
+            >.document__type
+            {
+              //min-width: 190px;
+              //padding: 12px 0 6px 20px;
+              //box-sizing: border-box;
               text-transform: capitalize;
               transition: all .3s;
 
@@ -93,13 +172,30 @@ body {
               }
             }
           }
+          @include phone
+          {
+            position: relative;
+            max-width: none;
+          }
         }
         &:hover
         {
           cursor: pointer;
           >.button__content
           {
-            max-height: 215px;
+            >ul
+            {
+              border-width: 1px;
+              max-height: none;
+              //max-height: 220px;
+              //@include tablet {
+              //  max-height: 250px;
+              //}
+            }
+          }
+          .document__types
+          {
+            margin: 5px 0 0 0;
           }
         }
       }

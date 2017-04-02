@@ -4,16 +4,53 @@ section.page_content
         button.create__document.hover_dropdown
             .button__text create document
             .button__content
-                ul.document__types
+                ul.document__types.hover_dropdown
                     li.document__type.incoming incoming document
                     li.document__type.outgoing outgoing document
                     li.document__type.fax fax document
                     li.document__type.warrant warrant
                     li.document__type.job_description job description
-                    li.document__type.contract contract
+                    li.document__type.contract.hover_dropdown contract
+                        ul
+                            li.dropdown_item Rent
+                            li.dropdown_item Construction
+                            li.dropdown_item Security services
+                            li.dropdown_item Sponsorship
+                            li.dropdown_item Maintenance services
+                            li.dropdown_item Furniture/chairs supply
+                            li.dropdown_item Software development and delivery
+                            li.dropdown_item Licences
+                            li.dropdown_item HW supply
+                            li.dropdown_item NDA
+                            li.dropdown_item Services
+                            li.dropdown_item Supply
+                            li.dropdown_item Work contract
+                            li.dropdown_item Contract with individuals
+                            li.dropdown_item Education, seminars & trainings
+                            li.dropdown_item Travel
+                            li.dropdown_item Other
+
         button.attach__document.hover_dropdown
             .button__text attach document
-            .button__content bla bla
+            .button__content
+                ul.document__types.hover_dropdown
+                    li contract
+                    li.document__type.annex.hover_dropdown annex
+                        ul
+                            li.dropdown_item Act of acceptance of property or rooms
+                            li.dropdown_item Price negotiation protocol
+                            li.dropdown_item Estimate
+                            li.dropdown_item Requirements specification, project, scheme, layout or another task
+                            li.dropdown_item Payment schedule
+                            li.dropdown_item Work/services fulfillment schedule
+                            li.dropdown_item Protocol of disagreements
+                            li.dropdown_item Disagreements settlement protocol
+                            li.dropdown_item Certificate of cost of the performed work
+                            li.dropdown_item Acts of acceptance of performed works / rendered services
+                            li.dropdown_item Supply contracts specifications
+                            li.dropdown_item Acts of acceptance of the rendered services (software development)
+                            li.dropdown_item Act of acceptance of the rights for the computer program
+                            li.dropdown_item Other
     input#main__search(placeholder="search")
 
     section.tab__wrap
