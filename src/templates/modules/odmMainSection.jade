@@ -1,10 +1,17 @@
 include tableTemplate
 section.page_content
     .document_actions
-        button.create__document
+        button.create__document.hover_dropdown
             .button__text create document
-            .button__content bla
-        button.attach__document
+            .button__content
+                ul.document__types
+                    li.document__type.incoming incoming document
+                    li.document__type.outgoing outgoing document
+                    li.document__type.fax fax document
+                    li.document__type.warrant warrant
+                    li.document__type.job_description job description
+                    li.document__type.contract contract
+        button.attach__document.hover_dropdown
             .button__text attach document
             .button__content bla bla
     input#main__search(placeholder="search")

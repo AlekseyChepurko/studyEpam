@@ -1,5 +1,6 @@
 @import "mixinTable";
 @import "mixinTabs";
+@import "colorsDocumentType";
 
 body {
   .content {
@@ -11,16 +12,20 @@ body {
     button
     {
       border: 0;
+      min-width: 190px;
       font-size: .7rem;
       padding: 5px;
       margin: 0;
       outline: none;
       color: white;
       background-color: transparent;
+      box-sizing: border-box;
 
       >.button__text
       {
         padding: 5px;
+        min-width:inherit;
+        box-sizing: border-box;
 
       }
 
@@ -49,6 +54,52 @@ body {
           {
             content: "\f0c6";
             font-family: FontAwesome;
+          }
+        }
+      }
+
+      &.hover_dropdown
+      {
+        >.button__content
+        {
+          max-height: 0px;
+          overflow: hidden;
+          position: absolute;
+          max-width: 190px;
+          transition: max-height .3s;
+          background-color: white;
+          >.document__types
+          {
+            margin: 5px 0 0 0;
+            >.document__type
+            {
+              min-width: 190px;
+              padding: 12px 0 6px 20px;
+              box-sizing: border-box;
+              text-transform: capitalize;
+              transition: all .3s;
+
+              &:hover
+              {
+                color: white;
+
+                @each $item, $color in $docTypeColors
+                {
+                  &.#{$item}
+                  {
+                    background-color: $color;
+                  }
+                }
+              }
+            }
+          }
+        }
+        &:hover
+        {
+          cursor: pointer;
+          >.button__content
+          {
+            max-height: 215px;
           }
         }
       }
