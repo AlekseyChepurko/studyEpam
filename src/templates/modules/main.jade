@@ -1,3 +1,4 @@
+include tableTemplate
 section.main
     section.person__info
         input#person__search(placeholder="Search for a person")
@@ -38,110 +39,25 @@ section.main
             button.tablink(onclick="openTab(event, 'units')") my units
         .tabcontent#requests
             article.table__content
-                table.request_results
-                    thead
-                        tr
-                            th.request_col request
-                            th.date_col
-                                .text__wrap date
-                            th.status_col(align="center") status
-                        tr
-                            td.underline
-                            td.underline
-                            td.underline
-                    tbody
-                        tr
-                            td Praesent felis nibh, faucibus et interdum ut
-                            td 07/24/2015
-                            td(align="center")
-                                .state.rejected rejected
-                        tr
-                            td Praesent felis nibh, faucibus et interdum ut
-                            td 07/24/2015
-                            td(align="center")
-                                .state.allowed allowed
-                        tr
-                            td Praesent felis nibh, faucibus et interdum ut
-                            td 07/24/2015
-                            td(align="center")
-                                .state.rejected rejected
-                        tr
-                            td Praesent felis nibh, faucibus et interdum ut
-                            td 07/24/2015
-                            td(align="center")
-                                .state.rejected rejected
-                        tr
-                            td Praesent felis nibh, faucibus et interdum ut
-                            td 07/24/2015
-                            td(align="center")
-                                .state.allowed allowed
-                        tr
-                            td Praesent felis nibh, faucibus et interdum ut
-                            td 07/24/2015
-                            td(align="center")
-                                .state.rejected rejected
-                        tr
-                            td Praesent felis nibh, faucibus et interdum ut
-                            td 07/24/2015
-                            td(align="center")
-                                .state.rejected rejected
-                        tr
-                            td Praesent felis nibh, faucibus et interdum ut
-                            td 07/24/2015
-                            td(align="center")
-                                .state.allowed allowed
-                        tr
-                            td Praesent felis nibh, faucibus et interdum ut
-                            td 07/24/2015
-                            td(align="center")
-                                .state.rejected rejected
-                        tr
-                            td Praesent felis nibh, faucibus et interdum ut
-                            td 07/24/2015
-                            td(align="center")
-                                .state.allowed allowed
-                        tr
-                            td Praesent felis nibh, faucibus et interdum ut
-                            td 07/24/2015
-                            td(align="center")
-                                .state.rejected rejected
-                        tr
-                            td Praesent felis nibh, faucibus et interdum ut
-                            td 07/24/2015
-                            td(align="center")
-                                .state.rejected rejected
-                        tr
-                            td Praesent felis nibh, faucibus et interdum ut
-                            td 07/24/2015
-                            td(align="center")
-                                .state.rejected rejected
-                        tr
-                            td Praesent felis nibh, faucibus et interdum ut
-                            td 07/24/2015
-                            td(align="center")
-                                .state.allowed allowed
-                        tr
-                            td Praesent felis nibh, faucibus et interdum ut
-                            td 07/24/2015
-                            td(align="center")
-                                .state.rejected rejected
-                        tr
-                            td Praesent felis nibh, faucibus et interdum ut
-                            td 07/24/2015
-                            td(align="center")
-                                .state.rejected rejected
-                        tr
-                            td Praesent felis nibh, faucibus et interdum ut
-                            td 07/24/2015
-                            td(align="center")
-                                .state.rejected rejected
-
-
-
-
-
-
-
+                -
+                    var theadColumns = {
+                        request_col: "request",
+                        date_col: {value:"date"},
+                        status_col: "status"
+                    }
+                -
+                    var tbodyRows = [
+                        [ "Praesent felis nibh, faucibus et interdum ut", "07/24/2015", { state: "rejected" } ],
+                        [ "Praesent felis nibh, faucibus et interdum ut", "07/24/2015", { state: "rejected" } ],
+                        [ "Praesent felis nibh, faucibus et interdum ut", "07/24/2015", { state: "allowed" } ],
+                        [ "Praesent felis nibh, faucibus et interdum ut", "07/24/2015", { state: "rejected" } ],
+                        [ "Praesent felis nibh, faucibus et interdum ut", "07/24/2015", { state: "rejected" } ],
+                        [ "Praesent felis nibh, faucibus et interdum ut", "07/24/2015", { state: "awaits" } ],
+                        [ "Praesent felis nibh, faucibus et interdum ut", "07/24/2015", { state: "rejected" } ],
+                        [ "Praesent felis nibh, faucibus et interdum ut", "07/24/2015", { state: "rejected" } ],
+                    ]
+                -var table = {head: theadColumns, body: tbodyRows}
+                +table(table,"request_results")
         .tabcontent#viewed
             .bla    viewed
         .tabcontent#units
