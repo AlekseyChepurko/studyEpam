@@ -41,7 +41,8 @@ body {
         >.button__text
         {
           background-color: $green;
-          &:before {
+          &:before
+          {
             content: "\f016";
             font-family: "FontAwesome";
           }
@@ -58,10 +59,44 @@ body {
             font-family: FontAwesome;
           }
         }
+
+        .annex .dropdown_item
+        {
+          min-width: 400px;
+        }
       }
 
       &.hover_dropdown
       {
+        .dropdown_item
+        {
+          text-transform: lowercase;
+          &:first-letter
+          {
+            text-transform: uppercase;
+          }
+        }
+        >.button__text
+        {
+          span
+          {
+            margin: 0 15px 0 10px;
+            display: inline-block;
+            &:first-letter
+            {
+              text-transform: uppercase;
+            }
+          }
+
+          &:after
+          {
+            content: '\f107';
+            font-family:FontAwesome;
+          }
+
+
+        }
+
         >.button__content
         {
           position: absolute;

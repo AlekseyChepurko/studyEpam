@@ -2,7 +2,8 @@ include tableTemplate
 section.page_content
     .document_actions
         button.create__document.hover_dropdown
-            .button__text create document
+            .button__text
+                span create document
             .button__content
                 ul.document__types.hover_dropdown
                     li.document__type.incoming incoming document
@@ -31,15 +32,16 @@ section.page_content
                             li.dropdown_item Other
 
         button.attach__document.hover_dropdown
-            .button__text attach document
+            .button__text
+                span attach document
             .button__content
                 ul.document__types.hover_dropdown
                     li contract
                     li.document__type.annex.hover_dropdown annex
                         ul
-                            li.dropdown_item Act of acceptance of property or rooms
-                            li.dropdown_item Price negotiation protocol
-                            li.dropdown_item Estimate
+                            li.dropdown_item act of acceptance of property or rooms
+                            li.dropdown_item price negotiation protocol
+                            li.dropdown_item estimate
                             li.dropdown_item Requirements specification, project, scheme, layout or another task
                             li.dropdown_item Payment schedule
                             li.dropdown_item Work/services fulfillment schedule
