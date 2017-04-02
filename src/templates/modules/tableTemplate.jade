@@ -20,7 +20,7 @@ mixin table(table, tclass)
                 tr
                     each col in row
                         if col.state
-                            td(align="center")
+                            td(align="left")
                                 div(class="state "+ col.state)= col.state
                         else
                             td= col
