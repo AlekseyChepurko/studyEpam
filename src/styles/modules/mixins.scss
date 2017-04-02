@@ -27,7 +27,6 @@
   }
 }
 
-
 @mixin desktop
 {
   @media  (max-width: 1950px)
@@ -35,4 +34,14 @@
     @content;
   }
 }
-//@mixin retina(){};
+
+@mixin setColors($colorsObject)
+{
+  @each $class, $color in $colorsObject
+  {
+    &.#{$class}
+    {
+      background-color: $color;
+    }
+  }
+}

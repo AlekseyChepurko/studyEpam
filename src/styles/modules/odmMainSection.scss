@@ -1,5 +1,6 @@
 @import "mixinTable";
 @import "mixinTabs";
+@import "mixins";
 @import "colorsDocumentType";
 
 body {
@@ -196,14 +197,7 @@ body {
               &:hover
               {
                 color: white;
-
-                @each $item, $color in $docTypeColors
-                {
-                  &.#{$item}
-                  {
-                    background-color: $color;
-                  }
-                }
+                @include setColors($docTypeColors);
               }
             }
           }

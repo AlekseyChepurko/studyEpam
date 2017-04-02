@@ -1,4 +1,5 @@
 @import "mixins";
+@import "colorsState";
 
 @mixin table {
   font-family: 'Source Sans Pro', sans-serif;
@@ -15,7 +16,8 @@
     //padding: 0 15px;
     border-spacing: 0;
     width: 100%;
-    thead {
+    thead
+    {
       font-size: .7rem;
       //font-weight: 700;
       font-weight:bold;
@@ -28,6 +30,11 @@
       }
       @include phone {
         font-size: 0.75rem;
+      }
+
+      >tr>th
+      {
+        padding: 0 0 0 15px;
       }
     }
     .request_col {
@@ -63,12 +70,7 @@
           &:first-letter {
             text-transform: uppercase;
           }
-          &.rejected {
-            background-color: $rejected;
-          }
-          &.allowed {
-            background-color: $green;
-          }
+          @include setColors($stateColors);
         }
       }
     }
