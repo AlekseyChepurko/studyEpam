@@ -3,7 +3,6 @@
 
 body>header {
   @include oswald();
-  //margin: 0 0 20px 0;
   position: fixed;
   top: 0;
   z-index: 999;
@@ -43,7 +42,6 @@ body>header {
     }
   }
 
-
   .header__part
   {
     margin:0;
@@ -53,12 +51,9 @@ body>header {
     justify-content: space-between;
     align-items: center;
 
-
-
     &.logo__block
     {
       background-color: $darkGray;
-      //min-height: 80px;
       text-transform: uppercase;
     }
   }
@@ -189,7 +184,6 @@ body>header {
           transform: translateX(-50%);
           height: 2px;
           transition: width .3s;
-
         }
 
         &:hover {
@@ -207,7 +201,6 @@ body>header {
         padding: 0 0 0 29px;
         min-width:234px;
         transition: all .3s;
-
 
         >*
         {
@@ -252,9 +245,7 @@ body>header {
           {
             ~.name
             {
-
               color: $blue;
-              //background-color: $blue;
               &:after
               {
                 transform: rotateX(180deg);
@@ -298,11 +289,6 @@ body>header {
           }
         }
       }
-
-      //@include phone
-      //{
-      //  display: none;
-      //}
     }
     }
 
@@ -400,14 +386,11 @@ body>header {
         }
       }
 
-
         &.active {
           transition: top .3s;
           top: 0;
           display: block;
-          //position: fixed;
         }
     }
-
   }
 }

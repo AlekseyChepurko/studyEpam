@@ -13,13 +13,11 @@
     font-size: 1.3rem;
   }
   table {
-    //padding: 0 15px;
     border-spacing: 0;
     width: 100%;
     thead
     {
       font-size: .7rem;
-      //font-weight: 700;
       font-weight:bold;
       *:first-letter {
         text-transform: uppercase;
@@ -38,7 +36,6 @@
       }
     }
     .request_col {
-      //min-width: 550px;
       width: 100%;
     }
     .text__wrap {
@@ -48,7 +45,6 @@
         content: "\f107";
         font-family: FontAwesome;
         margin: 0 0 0 10px;
-        //display: inline;
       }
       border-bottom: 2px solid transparent;
       transition: all .3s;
@@ -59,7 +55,6 @@
       }
     }
     tr {
-      //line-height: 40px;
       td {
         padding: 0 15px;
         .state
