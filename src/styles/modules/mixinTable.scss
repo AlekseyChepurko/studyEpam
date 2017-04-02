@@ -62,12 +62,14 @@
       //line-height: 40px;
       td {
         padding: 0 15px;
-        .state {
+        .state
+        {
           max-width: 70px;
           line-height: 20px;
           font-size: .75rem;
           color: white;
           text-align: center;
+          padding: 0 5px;
           &:first-letter {
             text-transform: uppercase;
           }
@@ -155,11 +157,6 @@
             &:nth-child(2n+1)
             {
               background-color: $tableGray;
-            }
-
-            >.state
-            {
-              padding: 0 5px;
             }
           }
         }
