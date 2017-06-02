@@ -34,9 +34,9 @@ section.main
 
     section.person__history
         nav.tab
-            button.tablink(onclick="openTab(event, 'requests')", id="defaultOpen") my requests
-            button.tablink(onclick="openTab(event, 'viewed')") recently viewed units
-            button.tablink(onclick="openTab(event, 'units')") my units
+            button.tablink(for="requests", id="defaultOpen") my requests
+            button.tablink(for="viewed",) recently viewed units
+            button.tablink(for="units",) my units
         .tabcontent#requests
             article.table__content
                 -

@@ -57,9 +57,9 @@ section.page_content
 
     section.tab__wrap
         nav.tab
-            button.tablink(onclick="openTab(event, 'created')") created by me
-            button.tablink#defaultOpen(onclick="openTab(event, 'approval')") under my approval
-            button.tablink(onclick="openTab(event, 'sent')") sent for group
+            button.tablink(for="created") created by me
+            button.tablink#defaultOpen(for="approval") under my approval
+            button.tablink(for="sent") sent for group
         .tabcontent#created created
         .tabcontent#approval
             // to use table template mixin set this values and send t to table(t)
