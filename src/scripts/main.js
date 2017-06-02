@@ -1,99 +1,49 @@
 /**
  * Created by Алексей on 18.03.2017.
  */
+import {classes} from './classes'
+import {sub_elements} from './SubElements'
 
+const selectFirst = (selector, element=document)=> element.querySelector(selector);
+const select = (selector, element=document)=> element.querySelectorAll(selector);
 
-function openTab(evt, tabName) {
- 
-    var i, tabcontent, tablinks;
+const openTab = (evt, tabName) => {
+    select(".tabcontent").forEach((item)=>{
+        item.style.display = "none"
+    });
 
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    
-    tablinks = document.getElementsByClassName("tablink");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
+    select(".tablink").forEach(item => {
+        item.className = item.className.replace(" active", "")
+    });
 
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
+    selectFirst(`#${tabName}`).style.display = "block";
+    evt.target.className += " active";
+};
 
-document.getElementById("defaultOpen").click();
+select("nav.tab>button").forEach((tab) => {
+    tab.addEventListener('click', (e)=>{
+        e.preventDefault();
+        openTab(e, e.target.getAttribute("for"))
+    })
+});
 
+selectFirst("#defaultOpen").click();
 
-var classes = (function(){
-    var add = function (cur,classToAdd) {
-        var currentClasses = cur.className;
-        if (currentClasses.indexOf(classToAdd) > -1)
-            return;
-        cur.className += ' '+classToAdd;
-    }
+select(".to_show").forEach(item => {
+    item.addEventListener('click', (e)=> {
+        sub_elements.open(e.currentTarget);
+    })
+});
 
-    var remove = function (cur,classToRemove) {
-        cur.className = cur.className.replace(' '+classToRemove, "");
-    }
+select(".btn__close_subElement").forEach(item=>{
+    item.addEventListener('click', e=>{
+        sub_elements.close(e.currentTarget);
+    })
+});
 
-    var toggle = function (cur, className){
-        var i = cur.className.indexOf(className);
-        if (i > -1)
-        {
-            remove(cur, className);
-            return;
-        }
-
-        add(cur, className);
-    }
-
-    return{
-        add: add,
-        remove: remove,
-        toggle: toggle,
-    }
-}());
-
-var sub_elements = (function () {
-
-    var open = function (el){
-        classes.add(el.nextElementSibling, "active");
-    }
-
-    var close = function (el){
-        classes.remove(el.parentNode, "active")
-    }
-
-    return{
-        open: open,
-        close: close,
-    }
-}());
-
-
-var toShows = document.getElementsByClassName("to_show"),
-    l = toShows.length;
-
-for (var i = 0; i < l; i++ )
-{
-    toShows[i].onclick = function () {
-        sub_elements.open(this);
-    }
-}
-var closeBtns = document.getElementsByClassName("btn__close_subElement"),
-    bl = closeBtns.length;
-for (var i = 0; i < bl; i++ )
-{
-    closeBtns[i].onclick = function () {
-        sub_elements.close(this);
-    }
-}
-
-
-var fullBtn = document.getElementById("fullscreen").onclick = function(){
-
-    var elem = this;
-    var html = document.getElementsByTagName("html")[0];
+selectFirst("#fullscreen").addEventListener('click', (e)=>{
+    const elem = e.target;
+    const html = selectFirst("html");
     if (elem.requestFullscreen) {
         html.requestFullscreen();
     } else if (elem.msRequestFullscreen) {
@@ -103,9 +53,8 @@ var fullBtn = document.getElementById("fullscreen").onclick = function(){
     } else if (elem.webkitRequestFullscreen) {
         html.webkitRequestFullscreen();
     }
-
     // console.log("hi");
-    // var e = new Event("keydown");
+    // const e = new Event("keydown");
     // e.key="F11";
     // e.keyCode=122;
     // e.which=e.keyCode;
@@ -116,28 +65,20 @@ var fullBtn = document.getElementById("fullscreen").onclick = function(){
     // // e.bubbles=true;
     // console.log(document.dispatchEvent(e));
     // // console.log(e);
-};
+}) ;
 
-var adaptiveMenu = document.getElementsByClassName("adaptive_menu__wrap")[0];
-var adaptiveToggler = document.getElementsByClassName("adaptive_menu__toogler")[0].onclick = function()
-{
-    classes.toggle(this, "active");
-    classes.toggle(adaptiveMenu, "active");
-};
+selectFirst(".adaptive_menu__toogler").addEventListener('click', e => {
+        classes.toggle(e.target, "active");
+        classes.toggle(selectFirst(".adaptive_menu__wrap"), "active");
+    });
 
-var dropDownItems = document.getElementsByClassName("dropdown");
-var dropDownCount = dropDownItems.length;
-console.log(dropDownCount);
-for (var i=0; i<dropDownCount; i++)
-{
-    dropDownItems[i].onclick = function()
-    {
-        classes.toggle(this, "active");
-    }
-}
+select(".dropdown").forEach(item => {
+    item.addEventListener('click', e=>{
+        classes.toggle(e.currentTarget, "active");
+    })
+});
 
-var navMenuTogler = document.getElementById("nav_menu__togler");
+selectFirst("#nav_menu__togler").addEventListener('click', e => {
+    classes.toggle(e.target.parentElement, "active");
 
-navMenuTogler.onclick = function () {
-    classes.toggle(this.parentElement, "active");
-}
+});

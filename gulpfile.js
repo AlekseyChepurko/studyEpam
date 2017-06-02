@@ -17,6 +17,9 @@ var gulp = require('gulp'),
     browserSync = require("browser-sync"),
     clean = require("gulp-clean"),
     notify = require("gulp-notify"),
+    babelify = require("babelify"),
+    browserify = require('browserify'),
+    source = require("vinyl-source-stream"),
     reload = browserSync.reload;
 
 
@@ -30,7 +33,7 @@ var path = {
     },
     src: {
         template: 'src/templates/*.jade',
-        js: 'src/scripts/*.js',
+        js: 'src/scripts/main.js',
         style: 'src/styles/*.scss',
         img: 'src/img/**/*.*',
         fonts: 'src/fonts/**/*.*'
@@ -80,8 +83,34 @@ gulp.task('fonts', function() {
         .pipe(gulp.dest(path.build.fonts));
 });
 
-gulp.task('scripts', function() {
-    gulp.src(path.src.js)
+// gulp.task('scripts', function(watch) {
+//     gulp.src(path.src.js)
+//         .pipe(browserify({
+//             insertGlobals : true,
+//             debug : !gulp.env.production
+//         }).transform(babelify.configure({
+//             presets: ["es2015"]
+//         })))
+//         .pipe(concat('main.js'))
+//         // .pipe(uglify())
+//         .pipe(gulp.dest(path.build.js));
+//
+// });
+gulp.task("scripts", function(){
+    return browserify({
+        entries: [path.src.js]
+    })
+        .transform(babelify.configure({
+            presets: ["es2015"]
+        }))
+        .bundle()
+        .pipe(source("main.js"))
+        .pipe(gulp.dest(path.build.js))
+        ;
+});
+
+gulp.task('MapScript', function() {
+    gulp.src('src/scripts/mapInit.js')
         .pipe(uglify())
         .pipe(gulp.dest(path.build.js));
 });
@@ -129,7 +158,7 @@ gulp.task('browser-sync', function() {
     });
 });
 
-gulp.task("build",['templates', 'styles', 'images','scripts', 'fonts']);
+gulp.task("build",['templates', 'styles', 'images','scripts', 'MapScript' , 'fonts']);
 
 gulp.task('default', ['clean' ], function(){
     gulp.run(['build', 'watch', 'browser-sync']);
