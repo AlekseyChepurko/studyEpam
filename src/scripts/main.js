@@ -3,22 +3,8 @@
  */
 import {classes} from './classes'
 import {sub_elements} from './SubElements'
-
-const selectFirst = (selector, element=document)=> element.querySelector(selector);
-const select = (selector, element=document)=> element.querySelectorAll(selector);
-
-const openTab = (evt, tabName) => {
-    select(".tabcontent").forEach((item)=>{
-        item.style.display = "none"
-    });
-
-    select(".tablink").forEach(item => {
-        item.className = item.className.replace(" active", "")
-    });
-
-    selectFirst(`#${tabName}`).style.display = "block";
-    evt.target.className += " active";
-};
+import {selectFirst, select} from './Selections'
+import {openTab} from './openTab'
 
 select("nav.tab>button").forEach((tab) => {
     tab.addEventListener('click', (e)=>{
@@ -80,5 +66,4 @@ select(".dropdown").forEach(item => {
 
 selectFirst("#nav_menu__togler").addEventListener('click', e => {
     classes.toggle(e.target.parentElement, "active");
-
 });
