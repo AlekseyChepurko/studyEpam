@@ -17,8 +17,7 @@ export const classes = (function(){
     };
 
     const toggle = function (cur, className){
-        const i = cur.className.indexOf(className);
-        if (i > -1)
+        if (cur.className.indexOf(className) > -1)
         {
             remove(cur, className);
             return;
