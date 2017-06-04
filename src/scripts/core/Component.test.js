@@ -3,19 +3,19 @@
  */
 
 import test from './test'
-import Sugard,{Component} from './Component'
+import Sugard,{Component, render} from './Component'
 
 export default function tests(){
     test("Child addition",(()=>{
         let a = new Component(),
             b = new Component('div');
-        a.addChildren(b);
+        a.addChildren([b]);
         return (b.parent === a && a.children[b.numberInParent] === b && a.children[a.dependentChildren[a.dependentChildren.indexOf(b.numberInParent)]] === b);
     })(), true);
     test("Equal elements addition", (()=>{
         let a = new Component();
         let b = new Component();
-        a.addChildren(b,b,b,b,b);
+        a.addChildren([b,b,b,b,b]);
         a.removeChild(0);
         return a.children.length === 0;
     })(),true);
@@ -24,9 +24,31 @@ export default function tests(){
             b = Sugard.createElement('section'),
             c = Sugard.createElement('table'),
             d =Sugard.createElement('h1');
-        a.addChildren(b,c,d);
+        a.addChildren([b,c,d]);
         let q = document.createElement('nav');
-        a.render(q);
+        // render(a, q);
+        return (render(a, q).outerHTML);
+    })(),(()=>{
+        let wrap = document.createElement('nav'),
+            d = document.createElement('div'),
+            s = document.createElement('section'),
+            t = document.createElement('table'),
+            h = document.createElement('h1');
+        d.appendChild(s);
+        d.appendChild(t);
+        d.appendChild(h);
+        wrap.appendChild(d);
+        return wrap.outerHTML;
+    })());
+    test("Props children addition",(()=>{
+        let b = Sugard.createElement('section'),
+            c = Sugard.createElement('table'),
+            d =Sugard.createElement('h1'),
+            a = Sugard.createElement('div', {
+            children: [b,c,d]
+        });
+        let q = document.createElement('nav');
+        render(a,q);
         return (q.outerHTML);
     })(),(()=>{
         let wrap = document.createElement('nav'),
@@ -88,7 +110,7 @@ export default function tests(){
     test("Render to Component", (()=>{
         let dest = new Component('div');
         let toRender = new Component('section');
-        toRender.render(dest);
+        render(toRender, dest);
         return dest.HTMLObject.outerHTML;
     })(), (()=>{
         let a = document.createElement('div'),
@@ -97,12 +119,13 @@ export default function tests(){
         return a.outerHTML
     })());
     test("Render to HTMLElement",(()=>{
-        let dest = document.createElement('div'),
+        let dest = document.createElement('body'),
             toRender = new Component('section');
-        toRender.render(dest);
+        dest.innerHTML = document.querySelector('body').innerHTML;
+        render(toRender,dest);
         return dest.outerHTML;
     })(), (()=>{
-        let a = document.createElement('div'),
+        let a = document.querySelector('body'),
             b = document.createElement('section');
         a.appendChild(b);
         return a.outerHTML
@@ -114,10 +137,10 @@ export default function tests(){
             table = Sugard.createElement('table'),
             h = Sugard.createElement(),
             a= Sugard.createElement('a');
-        toRender.addChildren(table);
-        toRender.addChildren(h);
-        h.addChildren(a);
-        toRender.render(dest);
+        toRender.addChildren([table]);
+        toRender.addChildren([h]);
+        h.addChildren([a]);
+        render(toRender, dest);
         return dest.HTMLObject.outerHTML;
     })(),(()=>{
         let wrap = document.createElement('div'),
@@ -130,5 +153,25 @@ export default function tests(){
         s.appendChild(f);
         wrap.appendChild(s);
         return wrap.outerHTML;
+    })());
+    test("Simple extension check", (()=>{
+        class Ext extends Component{}
+        return new Ext() instanceof Component;
+    })(), true);
+    test("Extended component rendering",(()=>{
+        class Table extends Component{
+            constructor(type='table', props) {
+                super(type, props);
+            }
+        }
+        let a = new Table(),
+        b = document.createElement('div');
+        render(a, b);
+        return b.outerHTML;
+
+    })(), (()=>{
+        let a = document.createElement('div');
+        a.appendChild(document.createElement('table'));
+        return a.outerHTML;
     })())
 }
