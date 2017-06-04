@@ -19,8 +19,11 @@ export class Component {
                 return(this.__parent__)
             }
         });
+        Object.defineProperty(this, 'children',{
+            value: props.children || [],
+            enumerable: true
+        });
         this.isRendered = false;
-        this.children = [];
         this.dependentChildren = [];
         this.__parent__= undefined;
         this.parent = parent;
@@ -35,7 +38,7 @@ export class Component {
         return this;
 
     }
-    addChildren(...children){
+    addChildren(children){
         children.forEach((child)=>{
             if (!(child instanceof Component))
                 throw new TypeError(`instance of ${child.constructor.name} given instead of Component`);
@@ -69,24 +72,82 @@ export class Component {
 
     };
 
-    render(dest=this.parent){
-        if(dest === this)
-            throw new ReferenceError(`Rendering to the self`);
+    componentWillRender(){
+    };
+    componentDidRender(){
+    };
+    componentWillUpdate(){};
+    componentDidUpdate(){
+    };
 
-        if(!(dest instanceof Node) && dest.constructor.name !== "Component")
-            throw new TypeError(`You are trying to mount element to not Node or Component instance`);
+    /**
+     *
+     * @param element
+     * @param dest
+     */
+    static render(element ,dest) {
 
-        this.children.forEach((child)=>{
-            this.HTMLObject.appendChild(
-                child.HTMLObject
-            );
-            child.render();
-        });
-        dest instanceof Node
-            ?dest.appendChild(this.HTMLObject)
-            :dest.HTMLObject.appendChild(this.HTMLObject);
-        return this.HTMLObject;
+        //     dest.parent && dest !== dest.parent
+        //         ? dest = dest.parent
+        //         : dest = document.createElement(dest.nodeName);
+        //
+        //     if(!(dest instanceof Node) && !(dest instanceof Component)) {
+        //         throw new TypeError(`You are trying to mount element to not Node or Component instance`);
+        //     }
+        //     this.componentWillRender();
+        //
+        //     if (Object.getPrototypeOf(this) !== this && Object.getPrototypeOf(this) instanceof Component) {
+        //         Object.getPrototypeOf(this).render(this);
+        //     }
+        //     console.log(dest);
+        //     this.children.forEach((child)=>{
+        //         dest.appendChild(
+        //             this.HTMLObject
+        //         );
+        //         child.render(this);
+        //     });
+        //     dest instanceof Node
+        //         ?dest.appendChild(this.HTMLObject)
+        //         :dest.HTMLObject.appendChild(this.HTMLObject);
+        //     this.isRendered = true;
+        //     this.componentDidRender();
+        //     return this.HTMLObject;
+        // }
+        if (!(element instanceof Component) && !(element instanceof Node)) {
+    throw new TypeError(`Render source has to be Component or Node instance - not ${element.constructor.name}`);
+}
+        if (!(dest instanceof Node) && !(dest instanceof Component)) {
+            throw new TypeError(`Render destination has to be Node instance - not ${dest.constructor.name}`);
+        }
+        element.componentWillRender();
+
+        if (dest instanceof Node){
+            if (element instanceof Component) {
+                element.children.forEach((item) => {
+                    Component.render(item, element.HTMLObject);
+                });
+                dest.appendChild(element.HTMLObject);
+            }
+            else
+                dest.appendChild(element);
+        } else {
+            if (element instanceof Component) {
+                element.children.forEach((item) => {
+                    Component.render(item, element.HTMLObject);
+                });
+                dest.HTMLObject.appendChild(element.HTMLObject);
+            }
+            else
+                dest.HTMLObject.appendChild(element);
+        }
+
+        element.componentDidRender();
+        return dest;
     }
+}
+
+export function render(element, dest){
+    return Component.render(element, dest);
 }
 
 export default class Sugard{
@@ -97,8 +158,11 @@ export default class Sugard{
      * @param {Component|object} parent
      * @returns {Component}
      */
-    static createElement(type, props, parent){
-        return new Component(type, props, parent);
+    static createElement(type, props={}, parent){
+        const res = new Component(type, props, parent);
+        if(props.children)
+            res.addChildren(props.children);
+        return res;
     };
 
     /**
@@ -109,7 +173,7 @@ export default class Sugard{
      */
     static render(element, destination){
         try{
-            return  element.render(destination);
+            return  Sugard.render(element, destination);
         }
         catch(e){
             console.warn(e);
