@@ -90,7 +90,29 @@ export class Component {
 }
 
 export default class Sugard{
-    static createElement(elem, parent, props){
-        return new Component(elem, props, parent);
+    /**
+     * Creates Component element
+     * @param {string|undefined} type
+     * @param {object|undefined} props
+     * @param {Component|object} parent
+     * @returns {Component}
+     */
+    static createElement(type, props, parent){
+        return new Component(type, props, parent);
     };
+
+    /**
+     * Renders element to destination Component or Node-element
+     * @param {Component} element
+     * @param {Component|object} destination
+     * @returns {Component} if its ok
+     */
+    static render(element, destination){
+        try{
+            return  element.render(destination);
+        }
+        catch(e){
+            console.warn(e);
+        }
+    }
 }
