@@ -20,6 +20,7 @@ var gulp = require('gulp'),
     babelify = require("babelify"),
     browserify = require('browserify'),
     source = require("vinyl-source-stream"),
+    buffer = require('vinyl-buffer'),
     reload = browserSync.reload;
 
 
@@ -29,14 +30,16 @@ var path = {
         js: 'build/js/',
         style: 'build/css/',
         img: 'build/img/',
-        fonts: 'build/fonts/'
+        fonts: 'build/fonts/',
+        data: 'build/data/'
     },
     src: {
         template: 'src/templates/*.jade',
         js: 'src/scripts/main.js',
         style: 'src/styles/*.scss',
         img: 'src/img/**/*.*',
-        fonts: 'src/fonts/**/*.*'
+        fonts: 'src/fonts/**/*.*',
+        data: 'src/testData/**/*.*'
     },
     watch: {
         html: 'src/templates/**/*.jade',
@@ -83,6 +86,11 @@ gulp.task('fonts', function() {
         .pipe(gulp.dest(path.build.fonts));
 });
 
+gulp.task('testData', function() {
+    return gulp.src(path.src.data)
+        .pipe(gulp.dest(path.build.data));
+});
+
 // gulp.task('scripts', function(watch) {
 //     gulp.src(path.src.js)
 //         .pipe(browserify({
@@ -105,6 +113,9 @@ gulp.task("scripts", function(){
         }))
         .bundle()
         .pipe(source("main.js"))
+        // TODO find out what the problem is
+        // .pipe(buffer())
+        // .pipe(uglify())
         .pipe(gulp.dest(path.build.js))
         ;
 });
@@ -158,7 +169,7 @@ gulp.task('browser-sync', function() {
     });
 });
 
-gulp.task("build",['templates', 'styles', 'images','scripts', 'MapScript' , 'fonts']);
+gulp.task("build",['templates', 'styles', 'images','scripts', 'MapScript', 'testData' , 'fonts']);
 
 gulp.task('default', ['clean' ], function(){
     gulp.run(['build', 'watch', 'browser-sync']);
