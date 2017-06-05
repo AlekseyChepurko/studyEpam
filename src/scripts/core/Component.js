@@ -105,32 +105,6 @@ export class Component {
         else
             element.addChildren(element.render());
 
-        //     dest.parent && dest !== dest.parent
-        //         ? dest = dest.parent
-        //         : dest = document.createElement(dest.nodeName);
-        //
-        //     if(!(dest instanceof Node) && !(dest instanceof Component)) {
-        //         throw new TypeError(`You are trying to mount element to not Node or Component instance`);
-        //     }
-        //     this.componentWillRender();
-        //
-        //     if (Object.getPrototypeOf(this) !== this && Object.getPrototypeOf(this) instanceof Component) {
-        //         Object.getPrototypeOf(this).render(this);
-        //     }
-        //     console.log(dest);
-        //     this.children.forEach((child)=>{
-        //         dest.appendChild(
-        //             this.HTMLObject
-        //         );
-        //         child.render(this);
-        //     });
-        //     dest instanceof Node
-        //         ?dest.appendChild(this.HTMLObject)
-        //         :dest.HTMLObject.appendChild(this.HTMLObject);
-        //     this.isRendered = true;
-        //     this.componentDidRender();
-        //     return this.HTMLObject;
-        // }
         if (!(element instanceof Component) && !(element instanceof Node)) {
     throw new TypeError(`Render source has to be Component or Node instance - not ${element.constructor.name}`);
 }
@@ -185,18 +159,4 @@ export default class Sugard{
         throw new TypeError("Now only tags may be render via this method");
     };
 
-    /**
-     * Renders element to destination Component or Node-element
-     * @param {Component} element
-     * @param {Component|object} destination
-     * @returns {Component} if its ok
-     */
-    // static render(element, destination){
-    //     try{
-    //         return  Sugard.render(element, destination);
-    //     }
-    //     catch(e){
-    //         console.warn(e);
-    //     }
-    // }
 }
