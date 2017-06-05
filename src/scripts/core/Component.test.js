@@ -163,6 +163,7 @@ export default function tests(){
             constructor(type='table', props) {
                 super(type, props);
             }
+            render(){};
         }
         let a = new Table(),
         b = document.createElement('div');
