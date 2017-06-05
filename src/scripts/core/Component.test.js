@@ -26,7 +26,6 @@ export default function tests(){
             d =Sugard.createElement('h1');
         a.addChildren([b,c,d]);
         let q = document.createElement('nav');
-        // render(a, q);
         return (render(a, q).outerHTML);
     })(),(()=>{
         let wrap = document.createElement('nav'),
