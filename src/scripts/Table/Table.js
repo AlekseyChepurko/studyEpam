@@ -17,13 +17,14 @@ export default class Table extends Component{
     componentDidRender(){}
 
     render(){
-        this.addChildren([
+        this.addChildren(
             new Head({
                 attributes: {
                     class: "headerClass"
-                }
+                },
+                data: ['a','b','c','d']
             }),
-        ]);
+        );
     }
 }
 
@@ -32,9 +33,10 @@ class Head extends Component{
         super(type, props);
     }
     render(){
-        const headers = ['a','b','c','d'];
         const line = new Component('tr');
-        line.addChildren(headers.map((item)=> new Component('th', {data: item})));
-        this.addChildren([line]);
+        line.addChildren(this.props.data.map((item) => {
+            return new Component('th', {data: item});
+        }));
+        return line;
     };
 }

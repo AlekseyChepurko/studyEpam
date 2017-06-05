@@ -48,7 +48,9 @@ export class Component {
         return this;
 
     }
-    addChildren(children){
+    addChildren(children=[]){
+        if(!Array.isArray(children))
+            children = [children];
         children.forEach((child)=>{
             if (!(child instanceof Component))
                 throw new TypeError(`instance of ${child.constructor.name} given instead of Component`);
@@ -101,7 +103,7 @@ export class Component {
                 throw new SyntaxError("Every Component instance that extends Component has to define method render()");
             else {}
         else
-            element.render();
+            element.addChildren(element.render());
 
         //     dest.parent && dest !== dest.parent
         //         ? dest = dest.parent
