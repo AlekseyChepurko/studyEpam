@@ -8,7 +8,7 @@ import {openTab} from './openTab'
 import Table from './Table/Table'
 import Sugard, {render} from './core/Component'
 import tests from './core/Component.test'
-// tests();
+tests();
 let incomingDocuments = new Table({
     data:{
         title: "asd",
@@ -22,7 +22,7 @@ let incomingDocuments = new Table({
     }
 });
 render(incomingDocuments, selectFirst('.tabcontent#approval'));
-// console.log(incomingDocuments);
+
 
 select("nav.tab>button").forEach((tab) => {
     tab.addEventListener('click', (e)=>{
