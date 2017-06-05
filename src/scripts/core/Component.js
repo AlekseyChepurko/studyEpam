@@ -23,6 +23,9 @@ export class Component {
             value: props.children || [],
             enumerable: true
         });
+        this.props = props;
+        Object.freeze(this.props);
+        this.state = {};
         this.isRendered = false;
         this.dependentChildren = [];
         this.__parent__= undefined;
@@ -35,6 +38,13 @@ export class Component {
         parent === this
             ?this.numberInParent = undefined
             :this.numberInParent = this.parent.children.indexOf(this);
+
+        if(this.props.attributes)
+            for(const prop in this.props.attributes){
+                this.HTMLObject.setAttribute(prop, this.props.attributes[prop])
+            }
+        if(this.props.data && typeof this.props.data !== 'object')
+            this.HTMLObject.innerHTML += this.props.data;
         return this;
 
     }
@@ -86,6 +96,12 @@ export class Component {
      * @param dest
      */
     static render(element ,dest) {
+        if(!('render' in element))
+            if(element.constructor.name !== "Component")
+                throw new SyntaxError("Every Component instance that extends Component has to define method render()");
+            else {}
+        else
+            element.render();
 
         //     dest.parent && dest !== dest.parent
         //         ? dest = dest.parent
@@ -128,8 +144,7 @@ export class Component {
                 });
                 dest.appendChild(element.HTMLObject);
             }
-            else
-                dest.appendChild(element);
+            else dest.appendChild(element);
         } else {
             if (element instanceof Component) {
                 element.children.forEach((item) => {
@@ -137,11 +152,11 @@ export class Component {
                 });
                 dest.HTMLObject.appendChild(element.HTMLObject);
             }
-            else
-                dest.HTMLObject.appendChild(element);
+            else dest.HTMLObject.appendChild(element);
         }
 
         element.componentDidRender();
+        element.isRendered = true;
         return dest;
     }
 }
@@ -158,11 +173,14 @@ export default class Sugard{
      * @param {Component|object} parent
      * @returns {Component}
      */
-    static createElement(type, props={}, parent){
-        const res = new Component(type, props, parent);
-        if(props.children)
-            res.addChildren(props.children);
-        return res;
+    static createElement(type="fragment",props={}, parent){
+        if(typeof type === 'string'){
+            const res = new Component(type,  props, parent, data);
+            if(props.children)
+                res.addChildren(props.children);
+            return res;
+        }
+        throw new TypeError("Now only tags may be render via this method");
     };
 
     /**
@@ -171,12 +189,12 @@ export default class Sugard{
      * @param {Component|object} destination
      * @returns {Component} if its ok
      */
-    static render(element, destination){
-        try{
-            return  Sugard.render(element, destination);
-        }
-        catch(e){
-            console.warn(e);
-        }
-    }
+    // static render(element, destination){
+    //     try{
+    //         return  Sugard.render(element, destination);
+    //     }
+    //     catch(e){
+    //         console.warn(e);
+    //     }
+    // }
 }
