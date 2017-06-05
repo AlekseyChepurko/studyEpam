@@ -2,7 +2,6 @@
  * Created by Алексей on 03.06.2017.
  */
 
-const global= document.querySelector('body');
 export class Component {
     constructor(type="fragment", props={},parent=this){
         Object.defineProperty(this, "parent",{
