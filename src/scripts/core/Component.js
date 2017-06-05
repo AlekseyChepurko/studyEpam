@@ -151,7 +151,7 @@ export default class Sugard{
      */
     static createElement(type="fragment",props={}, parent){
         if(typeof type === 'string'){
-            const res = new Component(type,  props, parent, data);
+            const res = new Component(type,  props, parent);
             if(props.children)
                 res.addChildren(props.children);
             return res;
