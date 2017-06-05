@@ -88,7 +88,7 @@ section.page_content
                     [ "07/15/2015", "01-01/6", "01-01", "07/15/2015", "Letter", "Whatever", "Organization 1", "EPAM","iavn ivanov","15/15/2015", { state: "awaits" }, ""],
                     [ "07/15/2015", "01-01/6", "01-01", "07/15/2015", "Letter", "Whatever", "Organization 1", "EPAM","iavn ivanov","15/15/2015", { state: "cancelled" }, ""],
                     [ "07/15/2015", "01-01/6", "01-01", "07/15/2015", "Letter", "Whatever", "Organization 1", "EPAM","iavn ivanov","15/15/2015", { state: "approved" }, ""],
-                    [ "07/15/2015", "01-01/6", "01-01", "07/15/2015", "Letter", "Whatever", "Organization 1", "EPAM","iavn ivanov","15/15/2015", { state: "helded" }, ""],
+                    [ "07/15/2015", "01-01/6", "01-01", "07/15/2015", "Letter", "Whatever", "Organization 1", "EPAM","iavn ivanov","15/15/2015", { state: "helded" }, ""]
 
                 ]
             - var t = {title: 'incoming documents', head: theadColumns, body: tbodyRows };
@@ -98,10 +98,10 @@ section.page_content
             -
                 var tbodyRows = [
                     ["adiN", "DvA", "Try", {state: "changed"}],
-                ["adiN", "DvA", "Try", {state: "deleted"}],
+                    ["adiN", "DvA", "Try", {state: "deleted"}],
                     ["adiN", "DvA", "Try", {state: "allowed"}],
                     ["adiN", "DvA", "Try", {state: "allowed"}],
-                    ["adiN", "DvA", "Try", {state: "allowed"}],
+                    ["adiN", "DvA", "Try", {state: "allowed"}]
                 ]
             - var t = {title: 'some header', head: theadColumns, body: tbodyRows };
             +table(t, "newTableClass")
