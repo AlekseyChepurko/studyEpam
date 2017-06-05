@@ -2,23 +2,39 @@
  * Created by Алексей on 02.06.2017.
  */
 
-import {Component} from '../core/Component'
+import Sugard,{Component} from '../core/Component'
 
 export default class Table extends Component{
-    constructor(head, body, type='table', ...props) {
-        super(type, ...props);
+    constructor(props, type='table') {
+        super(type, props);
         this.state = {
-            head: head,
-            body: body
+            title: this.props.data.title,
+            header: this.props.data.header,
+            body: this.props.data.body
         };
     }
+    componentWillRender(){}
+    componentDidRender(){}
 
-    componentWillRender(){
-        // console.log('table will render');
+    render(){
+        this.addChildren([
+            new Head({
+                attributes: {
+                    class: "headerClass"
+                }
+            }),
+        ]);
     }
-    componentDidRender(){
-        // console.log('table did render');
-    }
+}
 
-    // render(){}
+class Head extends Component{
+    constructor(props={}, type='thead') {
+        super(type, props);
+    }
+    render(){
+        const headers = ['a','b','c','d'];
+        const line = new Component('tr');
+        line.addChildren(headers.map((item)=> new Component('th', {data: item})));
+        this.addChildren([line]);
+    };
 }
