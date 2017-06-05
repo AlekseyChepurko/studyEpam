@@ -1,10 +1,28 @@
 /**
  * Created by Алексей on 18.03.2017.
  */
-import {classes} from './classes'
+import {classes} from './core/classes'
+import {selectFirst, select} from './core/Selections'
 import {sub_elements} from './SubElements'
-import {selectFirst, select} from './Selections'
 import {openTab} from './openTab'
+import Table from './Table/Table'
+import Sugard, {render} from './core/Component'
+import tests from './core/Component.test'
+// tests();
+let incomingDocuments = new Table({
+    data:{
+        title: "asd",
+        header: [],
+        body: [],
+    },
+    attributes: {
+        class: "blooo",
+        id: "approval",
+        style: "font-size: 50px"
+    }
+});
+render(incomingDocuments, selectFirst('.tabcontent#approval'));
+// console.log(incomingDocuments);
 
 select("nav.tab>button").forEach((tab) => {
     tab.addEventListener('click', (e)=>{
@@ -64,6 +82,11 @@ select(".dropdown").forEach(item => {
     })
 });
 
-selectFirst("#nav_menu__togler").addEventListener('click', e => {
-    classes.toggle(e.target.parentElement, "active");
-});
+try {
+        selectFirst("#nav_menu__togler").addEventListener('click', e => {
+        classes.toggle(e.target.parentElement, "active");
+    })}
+        catch (e){
+        console.log("error in event listener");
+    }
+
