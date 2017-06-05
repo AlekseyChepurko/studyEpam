@@ -17,13 +17,13 @@ export default class Table extends Component{
     componentDidRender(){}
 
     render(){
-        this.addChildren(
+        return(
             new Head({
                 attributes: {
                     class: "headerClass"
                 },
                 data: ['a','b','c','d']
-            }),
+            })
         );
     }
 }
