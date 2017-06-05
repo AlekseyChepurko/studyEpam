@@ -1,0 +1,83 @@
+[
+  {
+    "title": "incoming documents",
+    "header": ["incoming date", "incoming number", "external doc. index", "external doc. type", "type", "theme", "send from", "send to", "executor", "execution date", "execution mark", "actions"],
+    "body": [
+              {
+                "incomingDate": "",
+                "incomingNumber": "",
+                "externalDocIndex": "",
+                "type": "",
+                "theme": "",
+                "sendFrom": "",
+                "sendTo": "",
+                "executionDate": "",
+                "executionMark": "",
+                "actions": ""
+              },
+              {
+                "incomingDate": "",
+                "incomingNumber": "",
+                "externalDocIndex": "",
+                "type": "",
+                "theme": "",
+                "sendFrom": "",
+                "sendTo": "",
+                "executionDate": "",
+                "executionMark": "",
+                "actions": ""
+              },
+              {
+                "incomingDate": "",
+                "incomingNumber": "",
+                "externalDocIndex": "",
+                "type": "",
+                "theme": "",
+                "sendFrom": "",
+                "sendTo": "",
+                "executionDate": "",
+                "executionMark": "",
+                "actions": ""
+              },
+              {
+                "incomingDate": "",
+                "incomingNumber": "",
+                "externalDocIndex": "",
+                "type": "",
+                "theme": "",
+                "sendFrom": "",
+                "sendTo": "",
+                "executionDate": "",
+                "executionMark": "",
+                "actions": ""
+              },
+              {
+                "incomingDate": "",
+                "incomingNumber": "",
+                "externalDocIndex": "",
+                "type": "",
+                "theme": "",
+                "sendFrom": "",
+                "sendTo": "",
+                "executionDate": "",
+                "executionMark": "",
+                "actions": ""
+              },
+              {
+                "incomingDate": "",
+                "incomingNumber": "",
+                "externalDocIndex": "",
+                "type": "",
+                "theme": "",
+                "sendFrom": "",
+                "sendTo": "",
+                "executionDate": "",
+                "executionMark": "",
+                "actions": ""
+              }
+    ]
+  },
+  {
+    "title": "some header"
+  }
+]
