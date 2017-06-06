@@ -24,9 +24,9 @@ Run:
 ### [#Classes](./src/scripts/core/classes.js)
 | Function        | Parameters       | Output  | Description  | 
 | --------------- |:---------:| -------:| -------:|
-| add         | (Node: targetNode, string: classToAdd) |  | Adds classToAdd to the targetNode. If targetNode has classToAdd, then does nothing
-| remove         | (Node: targetNode, string: classToRemove) |  | Removes classToRemove from the targetNode. If targetNode has no classToRemove, then does nothing
-| toggle         | (Node: targetNode, string: classToToggle) |  | Toggles the classToToggle to the targetNode
+| add         | (Node: targetNode, string: classToAdd) | - | Adds classToAdd to the targetNode. If targetNode has classToAdd, then does nothing
+| remove         | (Node: targetNode, string: classToRemove) | - | Removes classToRemove from the targetNode. If targetNode has no classToRemove, then does nothing
+| toggle         | (Node: targetNode, string: classToToggle) | - | Toggles the classToToggle to the targetNode
 
 ### [#Selections](./src/scripts/core/Selections.js)
 | Function        | Parameters       | Output  | Description  | 
@@ -41,7 +41,7 @@ Run:
 
 ### [#Component](./src/scripts/core/Component.js)
 #### Description
-Basic Component class. Every instance of class extended from Component has to define render() method
+Basic Component class. Every instance of a class extended from Component has to define render() method
 
 | Field        | Description  | 
 | ---------------:| --------------------:|
@@ -49,7 +49,7 @@ Basic Component class. Every instance of class extended from Component has to de
 | children | Array of Components
 | props | Object of props. Basic: attributes | 
 | props.data | Additional innerHTML of HTMLOject of a corresponding Component element | 
-| props.attributes | {attr: val} - all fields will be written to the attributes of HTMLOject of a corresponding Component element (including style, class and id) | 
+| props.attributes | Object - all fields will be written to the attributes of HTMLOject of a corresponding Component element (including style, class and id) | 
 | isRendered | true if element is already rendered | 
 | dependentChildren | Array of children who depends on its state | 
 | HTMLObject | HTMLElement entity of Component element | 
@@ -59,9 +59,9 @@ Basic Component class. Every instance of class extended from Component has to de
 | --------------- |:---:| ---:| ---:| --------------------:|
 |Constructor| (string: type, object: props, instanceOfComponent: parent) | type="fragment", props={}, parent=this  | Creates instance of Component class
 | addChildren | (single Component instance or Array) | [] | this | Adds children to the Component instance |
-| removeChild | (Number|Component) | | | |
-| ComponentWillRender | | | | |
-| ComponentDidRender | | | | |
-| ComponentWillUpdate | | | | |
-| ComponentDidUpdate | | | | |
-| static render| | | | |
+| removeChild | (Number or Component) | - | this.children | Removes child from this.children array according to the position in children array or to the Component instance |
+| ComponentWillRender | - | - | - | Lifecycle method. Runs before component renders |
+| ComponentDidRender | - | - | - | Lifecycle method. Runs after component rendered |
+| ComponentWillUpdate | - | - | - | Lifecycle method. Runs before component reRender. Does not wok yet |
+| ComponentDidUpdate | - | - | - | Lifecycle method. Runs after component reRender. Does not wok yet |
+| static render| (ComponentInstance: element, ComponentInstance or NodeInstance: destination) | - | destination | Renders element to the destination |
