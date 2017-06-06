@@ -35,7 +35,10 @@ var path = {
     },
     src: {
         template: 'src/templates/*.jade',
-        js: 'src/scripts/main.js',
+        js:{
+            index: 'src/scripts/main.js',
+            odm: 'src/scripts/odm.js'
+        } ,
         style: 'src/styles/*.scss',
         img: 'src/img/**/*.*',
         fonts: 'src/fonts/**/*.*',
@@ -104,15 +107,30 @@ gulp.task('testData', function() {
 //         .pipe(gulp.dest(path.build.js));
 //
 // });
-gulp.task("scripts", function(){
+gulp.task("mainScript", function(){
     return browserify({
-        entries: [path.src.js]
+        entries: [path.src.js.index]
     })
         .transform(babelify.configure({
             presets: ["es2015"]
         }))
         .bundle()
         .pipe(source("main.js"))
+        // TODO find out what the problem is
+        // .pipe(buffer())
+        // .pipe(uglify())
+        .pipe(gulp.dest(path.build.js))
+        ;
+});
+gulp.task("odmScript", function(){
+    return browserify({
+        entries: [path.src.js.odm]
+    })
+        .transform(babelify.configure({
+            presets: ["es2015"]
+        }))
+        .bundle()
+        .pipe(source("odm.js"))
         // TODO find out what the problem is
         // .pipe(buffer())
         // .pipe(uglify())
@@ -149,7 +167,11 @@ gulp.task('watch', function() {
         .on('change', function(event) {
             console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
         });
-    gulp.watch(path.watch.js, ['scripts'])
+    gulp.watch(path.watch.js, ['mainScript'])
+        .on('change', function(event) {
+            console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+        });
+    gulp.watch(path.watch.js, ['odmScript'])
         .on('change', function(event) {
             console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
         });
@@ -169,7 +191,7 @@ gulp.task('browser-sync', function() {
     });
 });
 
-gulp.task("build",['templates', 'styles', 'images','scripts', 'MapScript', 'testData' , 'fonts']);
+gulp.task("build",['templates', 'styles', 'images','mainScript', 'odmScript', 'MapScript', 'testData' , 'fonts']);
 
 gulp.task('default', ['clean' ], function(){
     gulp.run(['build', 'watch', 'browser-sync']);

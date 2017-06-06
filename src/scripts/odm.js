@@ -6,25 +6,25 @@ import {selectFirst, select} from './core/Selections'
 import {sub_elements} from './SubElements'
 import {openTab} from './openTab'
 import Table from './Table/Table'
-import {render} from './core/Component'
+import Sugard, {render} from './core/Component'
 import getJSON from './core/Async'
 import tests from './core/Component.test'
 // tests();
 
-getJSON('/data/indexData.json',(tables)=>{
-    tables.forEach((table)=>{
-        let res = new Table({
-            data:{
-                title: table.title,
-                header: table.header,
-                body: table.body,
-            },
-            attributes: {
-                class: "ololo"
-            }
+getJSON('/data/odmData.json',(tables)=>{
+        tables.forEach((table)=>{
+            let res = new Table({
+                data:{
+                    title: table.title,
+                    header: table.header,
+                    body: table.body,
+                },
+                attributes: {
+                    class: "ololo"
+                }
+            });
+            render(res, selectFirst('.tabcontent#approval'));
         });
-        render(res, selectFirst('section.person__history>.tabcontent>article'));
-    });
 });
 
 select("nav.tab>button").forEach((tab) => {
@@ -75,12 +75,21 @@ selectFirst("#fullscreen").addEventListener('click', (e)=>{
 }) ;
 
 selectFirst(".adaptive_menu__toogler").addEventListener('click', e => {
-    classes.toggle(e.target, "active");
-    classes.toggle(selectFirst(".adaptive_menu__wrap"), "active");
-});
+        classes.toggle(e.target, "active");
+        classes.toggle(selectFirst(".adaptive_menu__wrap"), "active");
+    });
 
 select(".dropdown").forEach(item => {
     item.addEventListener('click', e=>{
         classes.toggle(e.currentTarget, "active");
     })
 });
+
+try {
+        selectFirst("#nav_menu__togler").addEventListener('click', e => {
+        classes.toggle(e.target.parentElement, "active");
+    })}
+        catch (e){
+        console.log("error in event listener");
+    }
+
