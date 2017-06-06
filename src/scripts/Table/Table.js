@@ -95,8 +95,7 @@ class tBody extends Component{
                     }
                     else
                         return new Component('td', {data: data})
-                }
-                ));
+            }));
             return line;
         });
         return lines;
