@@ -18,5 +18,12 @@
 ##[#JS Core](./src/scripts/core)
 ### [#Async](./src/scripts/core/Async.js)
 | Function        | Parameters           | Output  | Description  | 
-| --------------- |:----------------:| -------:| -------:|
-| getJSON         | string: URL, function: Callback | Promise | Fetches JSON file from URL => callback(jsonResult)
+| --------------- |:---------:| -------:| -------:|
+| getJSON         | (string: URL, function: Callback) | Promise | Fetches JSON file from URL => callback(jsonResult)
+
+### [#Classes](./src/scripts/core/classes.js)
+| Function        | Parameters       | Output  | Description  | 
+| --------------- |:---------:| -------:| -------:|
+| add         | (Node: targetNode, string: classToAdd) |  | Adds classToAdd to the targetNode. If targetNode has classToAdd, then does nothing
+| remove         | (Node: targetNode, string: classToRemove) |  | Removes classToRemove from the targetNode. If targetNode has no classToRemove, then does nothing
+| toggle         | (Node: targetNode, string: classToToggle) |  | Toggles the classToToggle to the targetNode
