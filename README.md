@@ -62,6 +62,6 @@ Basic Component class. Every instance of a class extended from Component has to 
 | removeChild | (Number or Component) | - | this.children | Removes child from this.children array according to the position in children array or to the Component instance |
 | ComponentWillRender | - | - | - | Lifecycle method. Runs before component renders |
 | ComponentDidRender | - | - | - | Lifecycle method. Runs after component rendered |
-| ComponentWillUpdate | - | - | - | Lifecycle method. Runs before component reRender. Does not wok yet |
-| ComponentDidUpdate | - | - | - | Lifecycle method. Runs after component reRender. Does not wok yet |
+| ComponentWillUpdate | - | - | - | Lifecycle method. Runs before component reRender. **Does not wok yet**|
+| ComponentDidUpdate | - | - | - | Lifecycle method. Runs after component reRender. **Does not wok yet** |
 | static render| (ComponentInstance: element, ComponentInstance or NodeInstance: destination) | - | destination | Renders element to the destination |
