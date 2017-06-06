@@ -64,7 +64,7 @@ Basic Component class. Every instance of a class extended from Component has to 
 | Method        | Parameters       | Defaults  | Output  | Description  | 
 | --------------- | :---:| :---:| :---:| :--------------------|
 |Constructor| (string: type, object: props, instanceOfComponent: parent) | type="fragment", props={}, parent=this  | Creates instance of Component class
-| addChildren | (single Component instance or Array) | [] | this | Adds children to the Component instance |
+| addChildren | (single Component instance or Array) | [ ] | this | Adds children to the Component instance |
 | removeChild | (Number or Component) | - | this.children | Removes child from this.children array according to the position in children array or to the Component instance |
 | ComponentWillRender | - | - | - | Lifecycle method. Runs before component renders |
 | ComponentDidRender | - | - | - | Lifecycle method. Runs after component rendered |
