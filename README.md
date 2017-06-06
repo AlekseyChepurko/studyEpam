@@ -49,7 +49,7 @@ Technologies:
 Basic Component class. Every instance of a class extended from Component has to define render() method
 
 | Field        | Description  | 
-|:---------------| :--------------------:|
+|:---------------| :--------------------|
 | parent | Link to the parent element (Component or HTML Node) | 
 | children | Array of Components
 | props | Object of props. Basic: attributes | 
@@ -61,7 +61,7 @@ Basic Component class. Every instance of a class extended from Component has to 
 | numberInParent | Number in parent.children array | 
 
 | Method        | Parameters       | Defaults  | Output  | Description  | 
-| --------------- | :---:| :---:| :---:| --------------------:|
+| --------------- | :---:| :---:| :---:| :--------------------|
 |Constructor| (string: type, object: props, instanceOfComponent: parent) | type="fragment", props={}, parent=this  | Creates instance of Component class
 | addChildren | (single Component instance or Array) | [] | this | Adds children to the Component instance |
 | removeChild | (Number or Component) | - | this.children | Removes child from this.children array according to the position in children array or to the Component instance |
