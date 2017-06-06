@@ -1,3 +1,3 @@
 # studyEpam
 
-![Костыли](./promo.jpg)
+![Костыли](./promo.jpg?raw=true)
