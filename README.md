@@ -1,19 +1,19 @@
 # studyEpam
 
-<p align="center">Краткое описание проекта:</p>
+<p align="center">Long story short:</p>
 <p align="center">
   <img width="600" height="352" src="./promo.jpg">
 </p>
 
-Запуск:
+Run:
 
     npm i
     gulp
     
-* Сборка - Gulp
-* Статика - Pug
-* Визуальная динмака - VanilaJS
-* Контент-динмака - VanilaJS
+* Build - Gulp
+* Static templates - Pug
+* Visual dynamic - VanilaJS
+* Content-dynamic - VanilaJS
 
 ## [#JS Core](./src/scripts/core)
 ### [#Async](./src/scripts/core/Async.js)

@@ -47,6 +47,7 @@ export class Component {
         return this;
 
     }
+    // TODO should return this
     addChildren(children=[]){
         if(!Array.isArray(children))
             children = [children];
