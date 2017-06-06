@@ -14,15 +14,16 @@ export default class Table extends Component{
         };
     }
     render(){
-        return([
-            new Header({
-                data: this.state.title
-            }),
-            new Body({
-                header: this.state.header,
-                body: this.state.body
-            })
-        ]);
+        return(
+            [
+                new Header({
+                    data: this.state.title
+                }),
+                new Body({
+                    header: this.state.header,
+                    body: this.state.body
+                })
+            ]);
     }
 }
 class Header extends Component {
@@ -36,17 +37,18 @@ class Body extends Component{
         super('table', props)
     }
     render(){
-        return ([
-            new tHead({
-                attributes: {
-                    class: "headerClass"
-                },
-                data: this.props.header
-            }),
-            new tBody({
-                data: this.props.body
-            })
-        ])
+        return (
+            [
+                new tHead({
+                    attributes: {
+                        class: "headerClass"
+                    },
+                    data: this.props.header
+                }),
+                new tBody({
+                    data: this.props.body,
+                })
+            ])
     }
 }
 class tHead extends Component{
