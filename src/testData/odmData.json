@@ -3,81 +3,87 @@
     "title": "incoming documents",
     "header": ["incoming date", "incoming number", "external doc. index", "external doc. type", "type", "theme", "send from", "send to", "executor", "execution date", "execution mark", "actions"],
     "body": [
-              {
-                "incomingDate": "",
-                "incomingNumber": "",
-                "externalDocIndex": "",
-                "type": "",
-                "theme": "",
-                "sendFrom": "",
-                "sendTo": "",
-                "executionDate": "",
-                "executionMark": "",
-                "actions": ""
-              },
-              {
-                "incomingDate": "",
-                "incomingNumber": "",
-                "externalDocIndex": "",
-                "type": "",
-                "theme": "",
-                "sendFrom": "",
-                "sendTo": "",
-                "executionDate": "",
-                "executionMark": "",
-                "actions": ""
-              },
-              {
-                "incomingDate": "",
-                "incomingNumber": "",
-                "externalDocIndex": "",
-                "type": "",
-                "theme": "",
-                "sendFrom": "",
-                "sendTo": "",
-                "executionDate": "",
-                "executionMark": "",
-                "actions": ""
-              },
-              {
-                "incomingDate": "",
-                "incomingNumber": "",
-                "externalDocIndex": "",
-                "type": "",
-                "theme": "",
-                "sendFrom": "",
-                "sendTo": "",
-                "executionDate": "",
-                "executionMark": "",
-                "actions": ""
-              },
-              {
-                "incomingDate": "",
-                "incomingNumber": "",
-                "externalDocIndex": "",
-                "type": "",
-                "theme": "",
-                "sendFrom": "",
-                "sendTo": "",
-                "executionDate": "",
-                "executionMark": "",
-                "actions": ""
-              },
-              {
-                "incomingDate": "",
-                "incomingNumber": "",
-                "externalDocIndex": "",
-                "type": "",
-                "theme": "",
-                "sendFrom": "",
-                "sendTo": "",
-                "executionDate": "",
-                "executionMark": "",
-                "actions": ""
-              }
+      {
+        "incomingDate": "07/15/2015",
+        "incomingNumber": "01-01/6",
+        "externalDocIndex": "01-01",
+        "externalDocType": "07/15/2015",
+        "type": "Letter",
+        "theme": "Whatever",
+        "sendFrom": "Organization 1",
+        "sendTo": "EPAM",
+        "executor": "Ivan Ivanov",
+        "executionDate": "07/15/2015",
+        "executionMark": "signed",
+        "actions": ""
+      },
+      {
+        "incomingDate": "07/15/2015",
+        "incomingNumber": "01-01/6",
+        "externalDocIndex": "01-01",
+        "externalDocType": "07/15/2015",
+        "type": "Letter",
+        "theme": "Whatever",
+        "sendFrom": "Organization 1",
+        "sendTo": "EPAM",
+        "executor": "Ivan Ivanov",
+        "executionDate": "07/15/2015",
+        "executionMark": "signed",
+        "actions": ""
+      },{
+        "incomingDate": "07/15/2015",
+        "incomingNumber": "01-01/6",
+        "externalDocIndex": "01-01",
+        "externalDocType": "07/15/2015",
+        "type": "Letter",
+        "theme": "Whatever",
+        "sendFrom": "Organization 1",
+        "sendTo": "EPAM",
+        "executor": "Ivan Ivanov",
+        "executionDate": "07/15/2015",
+        "executionMark": "signed",
+        "actions": ""
+      },{
+        "incomingDate": "07/15/2015",
+        "incomingNumber": "01-01/6",
+        "externalDocIndex": "01-01",
+        "externalDocType": "07/15/2015",
+        "type": "Letter",
+        "theme": "Whatever",
+        "sendFrom": "Organization 1",
+        "sendTo": "EPAM",
+        "executor": "Ivan Ivanov",
+        "executionDate": "07/15/2015",
+        "executionMark": "signed",
+        "actions": ""
+      },{
+        "incomingDate": "07/15/2015",
+        "incomingNumber": "01-01/6",
+        "externalDocIndex": "01-01",
+        "externalDocType": "07/15/2015",
+        "type": "Letter",
+        "theme": "Whatever",
+        "sendFrom": "Organization 1",
+        "sendTo": "EPAM",
+        "executor": "Ivan Ivanov",
+        "executionDate": "07/15/2015",
+        "executionMark": "signed",
+        "actions": ""
+      },{
+        "incomingDate": "07/15/2015",
+        "incomingNumber": "01-01/6",
+        "externalDocIndex": "01-01",
+        "externalDocType": "07/15/2015",
+        "type": "Letter",
+        "theme": "Whatever",
+        "sendFrom": "Organization 1",
+        "sendTo": "EPAM",
+        "executor": "Ivan Ivanov",
+        "executionDate": "07/15/2015",
+        "executionMark": "signed",
+        "actions": ""
+      }
+
     ]
-  },
-  {
-    "title": "some header"
   }
 ]
