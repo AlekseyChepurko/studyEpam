@@ -39,25 +39,25 @@ section.main
             button.tablink(for="units",) my units
         .tabcontent#requests
             article.table__content
-                -
-                    var theadColumns = {
-                        request_col: "request",
-                        date_col: {value:"date"},
-                        status_col: "status"
-                    }
-                -
-                    var tbodyRows = [
-                        [ "Praesent felis nibh, faucibus et interdum ut", "07/24/2015", { state: "rejected" } ],
-                        [ "Praesent felis nibh, faucibus et interdum ut", "07/24/2015", { state: "rejected" } ],
-                        [ "Praesent felis nibh, faucibus et interdum ut", "07/24/2015", { state: "approved" } ],
-                        [ "Praesent felis nibh, faucibus et interdum ut", "07/24/2015", { state: "rejected" } ],
-                        [ "Praesent felis nibh, faucibus et interdum ut", "07/24/2015", { state: "rejected" } ],
-                        [ "Praesent felis nibh, faucibus et interdum ut", "07/24/2015", { state: "awaits" } ],
-                        [ "Praesent felis nibh, faucibus et interdum ut", "07/24/2015", { state: "rejected" } ],
-                        [ "Praesent felis nibh, faucibus et interdum ut", "07/24/2015", { state: "rejected" } ],
-                    ]
-                -var table = {head: theadColumns, body: tbodyRows}
-                +table(table,"request_results")
+                //-
+                //    var theadColumns = {
+                //        request_col: "request",
+                //        date_col: {value:"date"},
+                //        status_col: "status"
+                //    }
+                //-
+                //    var tbodyRows = [
+                //        [ "Praesent felis nibh, faucibus et interdum ut", "07/24/2015", { state: "rejected" } ],
+                //        [ "Praesent felis nibh, faucibus et interdum ut", "07/24/2015", { state: "rejected" } ],
+                //        [ "Praesent felis nibh, faucibus et interdum ut", "07/24/2015", { state: "approved" } ],
+                //        [ "Praesent felis nibh, faucibus et interdum ut", "07/24/2015", { state: "rejected" } ],
+                //        [ "Praesent felis nibh, faucibus et interdum ut", "07/24/2015", { state: "rejected" } ],
+                //        [ "Praesent felis nibh, faucibus et interdum ut", "07/24/2015", { state: "awaits" } ],
+                //        [ "Praesent felis nibh, faucibus et interdum ut", "07/24/2015", { state: "rejected" } ],
+                //        [ "Praesent felis nibh, faucibus et interdum ut", "07/24/2015", { state: "rejected" } ],
+                //    ]
+                //-var table = {head: theadColumns, body: tbodyRows}
+                //+table(table,"request_results")
         .tabcontent#viewed
             .bla    viewed
         .tabcontent#units
