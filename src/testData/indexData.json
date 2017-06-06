@@ -1,3 +1,29 @@
-{
-  "some": "info"
-}
+[
+  {
+    "header": ["request", "date", "status"],
+    "body": [
+      {
+        "request": "Praesent felis nibh",
+        "date": "01-01/6",
+        "executionMark": {"state": "approved"}
+      },
+      {
+        "request": "Praesent felis nibh",
+        "date": "01-01/6",
+        "executionMark": {"state": "rejected"}
+      },{
+        "request": "Praesent felis nibh",
+        "date": "01-01/6",
+        "executionMark": {"state": "rejected"}
+      },{
+        "request": "Praesent felis nibh",
+        "date": "01-01/6",
+        "executionMark": {"state": "awaits"}
+      },{
+        "request": "Praesent felis nibh",
+        "date": "01-01/6",
+        "executionMark": {"state": "rejected"}
+      }
+    ]
+  }
+]
