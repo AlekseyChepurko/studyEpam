@@ -1,6 +1,6 @@
 # studyEpam
 
-<p align="center">Long story short:</p>
+<p align="center"><strong>Long story short:</strong></p>
 <p align="center">
   <img width="600" height="352" src="./promo.jpg">
 </p>
