@@ -67,42 +67,42 @@ section.page_content
             //-var thdeadBody = ["value", {className: "wrapped div with className"}]
             //-var t = {title:"title text", head:theadColumns, body:theadBody}
             //+table(t, "tables className")
-            -
-                var theadColumns = {
-                    date: {value:"incoming date"},
-                    first_class: "incoming number",
-                    second_class: "external doc. index",
-                    wrap2: {value:"external doc. type"},
-                    type: "type",
-                    theme: "theme",
-                    send_form: "send from",
-                    send_to: "send to",
-                    executor: "executor",
-                    execution_date: "execution date",
-                    state: "execution mark",
-                    actions: "actions"
-                }
-            -
-                var tbodyRows = [
-                    [ "07/15/2015", "01-01/6", "01-01", "07/15/2015", "Letter", "Whatever", "Organization 1", "EPAM","iavn ivanov","15/15/2015", { state: "signed" }, ""],
-                    [ "07/15/2015", "01-01/6", "01-01", "07/15/2015", "Letter", "Whatever", "Organization 1", "EPAM","iavn ivanov","15/15/2015", { state: "awaits" }, ""],
-                    [ "07/15/2015", "01-01/6", "01-01", "07/15/2015", "Letter", "Whatever", "Organization 1", "EPAM","iavn ivanov","15/15/2015", { state: "cancelled" }, ""],
-                    [ "07/15/2015", "01-01/6", "01-01", "07/15/2015", "Letter", "Whatever", "Organization 1", "EPAM","iavn ivanov","15/15/2015", { state: "approved" }, ""],
-                    [ "07/15/2015", "01-01/6", "01-01", "07/15/2015", "Letter", "Whatever", "Organization 1", "EPAM","iavn ivanov","15/15/2015", { state: "helded" }, ""]
-
-                ]
-            - var t = {title: 'incoming documents', head: theadColumns, body: tbodyRows };
-            +table(t)
-
-            - var theadColumns = {wrap1:{value:"text1"}, first_class:"one", second_class:"second", wrap2:{value:"text2"} };
-            -
-                var tbodyRows = [
-                    ["adiN", "DvA", "Try", {state: "changed"}],
-                    ["adiN", "DvA", "Try", {state: "deleted"}],
-                    ["adiN", "DvA", "Try", {state: "allowed"}],
-                    ["adiN", "DvA", "Try", {state: "allowed"}],
-                    ["adiN", "DvA", "Try", {state: "allowed"}]
-                ]
-            - var t = {title: 'some header', head: theadColumns, body: tbodyRows };
-            +table(t, "newTableClass")
+            //-
+            //    var theadColumns = {
+            //        date: {value:"incoming date"},
+            //        first_class: "incoming number",
+            //        second_class: "external doc. index",
+            //        wrap2: {value:"external doc. type"},
+            //        type: "type",
+            //        theme: "theme",
+            //        send_form: "send from",
+            //        send_to: "send to",
+            //        executor: "executor",
+            //        execution_date: "execution date",
+            //        state: "execution mark",
+            //        actions: "actions"
+            //    }
+            //-
+            //    var tbodyRows = [
+            //        [ "07/15/2015", "01-01/6", "01-01", "07/15/2015", "Letter", "Whatever", "Organization 1", "EPAM","iavn ivanov","15/15/2015", { state: "signed" }, ""],
+            //        [ "07/15/2015", "01-01/6", "01-01", "07/15/2015", "Letter", "Whatever", "Organization 1", "EPAM","iavn ivanov","15/15/2015", { state: "awaits" }, ""],
+            //        [ "07/15/2015", "01-01/6", "01-01", "07/15/2015", "Letter", "Whatever", "Organization 1", "EPAM","iavn ivanov","15/15/2015", { state: "cancelled" }, ""],
+            //        [ "07/15/2015", "01-01/6", "01-01", "07/15/2015", "Letter", "Whatever", "Organization 1", "EPAM","iavn ivanov","15/15/2015", { state: "approved" }, ""],
+            //        [ "07/15/2015", "01-01/6", "01-01", "07/15/2015", "Letter", "Whatever", "Organization 1", "EPAM","iavn ivanov","15/15/2015", { state: "helded" }, ""]
+            //
+            //    ]
+            //- var t = {title: 'incoming documents', head: theadColumns, body: tbodyRows };
+            //+table(t)
+            //
+            //- var theadColumns = {wrap1:{value:"text1"}, first_class:"one", second_class:"second", wrap2:{value:"text2"} };
+            //-
+            //    var tbodyRows = [
+            //        ["adiN", "DvA", "Try", {state: "changed"}],
+            //        ["adiN", "DvA", "Try", {state: "deleted"}],
+            //        ["adiN", "DvA", "Try", {state: "allowed"}],
+            //        ["adiN", "DvA", "Try", {state: "allowed"}],
+            //        ["adiN", "DvA", "Try", {state: "allowed"}]
+            //    ]
+            //- var t = {title: 'some header', head: theadColumns, body: tbodyRows };
+            //+table(t, "newTableClass")
         .tabcontent#sent sent
