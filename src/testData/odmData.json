@@ -14,7 +14,7 @@
         "sendTo": "EPAM",
         "executor": "Ivan Ivanov",
         "executionDate": "07/15/2015",
-        "executionMark": "signed",
+        "executionMark": {"state": "signed"},
         "actions": ""
       },
       {
@@ -28,7 +28,7 @@
         "sendTo": "EPAM",
         "executor": "Ivan Ivanov",
         "executionDate": "07/15/2015",
-        "executionMark": "signed",
+        "executionMark": {"state": "awaits"},
         "actions": ""
       },{
         "incomingDate": "07/15/2015",
@@ -41,7 +41,7 @@
         "sendTo": "EPAM",
         "executor": "Ivan Ivanov",
         "executionDate": "07/15/2015",
-        "executionMark": "signed",
+        "executionMark": {"state": "cancelled"},
         "actions": ""
       },{
         "incomingDate": "07/15/2015",
@@ -54,7 +54,7 @@
         "sendTo": "EPAM",
         "executor": "Ivan Ivanov",
         "executionDate": "07/15/2015",
-        "executionMark": "signed",
+        "executionMark": {"state": "approved"},
         "actions": ""
       },{
         "incomingDate": "07/15/2015",
@@ -67,7 +67,7 @@
         "sendTo": "EPAM",
         "executor": "Ivan Ivanov",
         "executionDate": "07/15/2015",
-        "executionMark": "signed",
+        "executionMark": {"state": "helded"},
         "actions": ""
       },{
         "incomingDate": "07/15/2015",
@@ -80,10 +80,44 @@
         "sendTo": "EPAM",
         "executor": "Ivan Ivanov",
         "executionDate": "07/15/2015",
-        "executionMark": "signed",
+        "executionMark": {"state": "signed"},
         "actions": ""
       }
 
+    ]
+  },
+  {
+    "title": "some header",
+    "header": ["text1", "one", "second", "text2"],
+    "body": [
+      {
+        "incomingDate": "07/15/2015",
+        "incomingNumber": "01-01/6",
+        "externalDocIndex": "01-01",
+        "executionMark": {"state": "changed"}
+      },
+      {
+        "incomingDate": "07/15/2015",
+        "incomingNumber": "01-01/6",
+        "externalDocIndex": "01-01",
+        "executionMark": {"state": "deleted"}
+      }, {
+        "incomingDate": "07/15/2015",
+        "incomingNumber": "01-01/6",
+        "externalDocIndex": "01-01",
+        "executionMark": {"state": "allowed"}
+      }, {
+        "incomingDate": "07/15/2015",
+        "incomingNumber": "01-01/6",
+        "externalDocIndex": "01-01",
+        "executionMark": {"state": "allowed"}
+      },
+      {
+        "incomingDate": "07/15/2015",
+        "incomingNumber": "01-01/6",
+        "externalDocIndex": "01-01",
+        "executionMark": {"state": "allowed"}
+      }
     ]
   }
 ]
