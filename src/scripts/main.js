@@ -7,22 +7,25 @@ import {sub_elements} from './SubElements'
 import {openTab} from './openTab'
 import Table from './Table/Table'
 import Sugard, {render} from './core/Component'
+import getJSON from './core/Async'
 import tests from './core/Component.test'
-tests();
-let incomingDocuments = new Table({
-    data:{
-        title: "asd",
-        header: [],
-        body: [],
-    },
-    attributes: {
-        class: "blooo",
-        id: "approval",
-        style: "font-size: 50px"
-    }
-});
-render(incomingDocuments, selectFirst('.tabcontent#approval'));
+// tests();
 
+getJSON('/data/odmData.json',(tables)=>{
+        tables.forEach((table)=>{
+            let res = new Table({
+                data:{
+                    title: table.title,
+                    header: table.header,
+                    body: table.body,
+                },
+                attributes: {
+                    class: "ololo"
+                }
+            });
+            render(res, selectFirst('.tabcontent#approval'));
+        });
+});
 
 select("nav.tab>button").forEach((tab) => {
     tab.addEventListener('click', (e)=>{
