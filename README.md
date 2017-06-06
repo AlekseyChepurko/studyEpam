@@ -14,6 +14,7 @@ Run:
     npm i
     gulp
     
+Technologies:
 * Build - Gulp
 * Static templates - Pug
 * Visual dynamic - VanilaJS
