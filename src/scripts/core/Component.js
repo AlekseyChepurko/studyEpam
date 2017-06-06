@@ -38,7 +38,7 @@ export class Component {
             ?this.numberInParent = undefined
             :this.numberInParent = this.parent.children.indexOf(this);
 
-        if(this.props.attributes)
+        if(this.props.attributes && type !== 'fragment')
             for(const prop in this.props.attributes){
                 this.HTMLObject.setAttribute(prop, this.props.attributes[prop])
             }
