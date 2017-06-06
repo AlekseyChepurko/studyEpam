@@ -82,7 +82,21 @@ class tBody extends Component{
     render(){
         const lines = this.props.data.map((item)=>{
             const line = new Component('tr');
-            line.addChildren(Object.values(item).map(data => new Component('td', {data: data})));
+            line.addChildren(Object.values(item).map(data => {
+                    if( typeof data === 'object' && "state" in data){
+                        const wrap = new Component('td');
+                        wrap.addChildren(new Component('div', {
+                            data: data['state'],
+                            attributes: {
+                                class: `state ${data['state']}`
+                            }
+                        }));
+                        return wrap
+                    }
+                    else
+                        return new Component('td', {data: data})
+                }
+                ));
             return line;
         });
         return lines;
