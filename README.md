@@ -31,5 +31,10 @@
 ### [#Selections](./src/scripts/core/Selections.js)
 | Function        | Parameters       | Output  | Description  | 
 | --------------- |:---------:| -------:| -------:|
-| select         | (string: selector, Node: element=document) | \[instances of HTMLElements] | Syntactic sugar: (selector, element=document)=> element.querySelectorAll(selector);
-| selectFirst         | (string: selector, Node: element=document) | instance of HTMLElement | Syntactic sugar: (selector, element=document)=> element.querySelector(selector)
+| select         | (string: selector, Node: element=document) | \[instances of HTMLElements] | Syntactic sugar for (selector, element=document)=> element.querySelectorAll(selector);
+| selectFirst         | (string: selector, Node: element=document) | instance of HTMLElement | Syntactic sugar for (selector, element=document)=> element.querySelector(selector)
+
+### [#Strings](./src/scripts/core/Strings.js)
+| Function        | Parameters       | Output  | Description  | 
+| --------------- |:---------:| -------:| -------:|
+| camalize         | (string: input) | string | Camalizes the input string
