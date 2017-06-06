@@ -17,6 +17,7 @@ Run:
 Technologies:
 * Build - Gulp with babel
 * Static templates - Pug
+* Styles - SASS
 * Visual dynamic - VanilaJS
 * Content-dynamic - VanilaJS
 
