@@ -2,7 +2,7 @@
  * Created by Алексей on 02.06.2017.
  */
 
-import Sugard,{Component} from '../core/Component'
+import {Component} from '../core/Component'
 
 export default class Table extends Component{
     constructor(props,) {
