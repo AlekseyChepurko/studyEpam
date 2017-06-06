@@ -38,3 +38,24 @@
 | Function        | Parameters       | Output  | Description  | 
 | --------------- |:---------:| -------:| -------:|
 | camalize         | (string: input) | string | Camalizes the input string
+
+### [#Component](./src/scripts/core/Component.js)
+#### Description
+Basic Component class
+
+| Field        | Description  | 
+| ---------------:| --------------------:|
+| parent | Link to the parent element (Component or HTML Node) | 
+| children | Array of Components
+| props | Object of props. Basic: attributes | 
+| props.data | Additional innerHTML of HTMLOject of a corresponding Component element | 
+| props.attributes | {attr: val} - all fields will be written to the attributes of HTMLOject of a corresponding Component element (including style, class and id) | 
+| isRendered | true if element is already rendered | 
+| dependentChildren | Array of children who depends on its state | 
+| HTMLObject | HTMLElement entity of Component element | 
+| numberInParent | Number in parent.children array | 
+
+| Method        | Parameters       | Defaults  | Output  | Description  | 
+| --------------- |:---:| ---:| ---:| --------------------:|
+|Constructor| (string: type, object: props, instanceOfComponent: parent) | type="fragment", props={}, parent=this  | Basic component constructor
+
