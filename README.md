@@ -15,7 +15,7 @@
 * Визуальная динмака - VanilaJS
 * Контент-динмака - VanilaJS
 
-##[#JS Core](./src/scripts/core)
+## [#JS Core](./src/scripts/core)
 ### [#Async](./src/scripts/core/Async.js)
 | Function        | Parameters           | Output  | Description  | 
 | --------------- |:---------:| -------:| -------:|
