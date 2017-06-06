@@ -41,7 +41,7 @@
 
 ### [#Component](./src/scripts/core/Component.js)
 #### Description
-Basic Component class
+Basic Component class. Every instance of class extended from Component has to define render() method
 
 | Field        | Description  | 
 | ---------------:| --------------------:|
@@ -57,5 +57,11 @@ Basic Component class
 
 | Method        | Parameters       | Defaults  | Output  | Description  | 
 | --------------- |:---:| ---:| ---:| --------------------:|
-|Constructor| (string: type, object: props, instanceOfComponent: parent) | type="fragment", props={}, parent=this  | Basic component constructor
-
+|Constructor| (string: type, object: props, instanceOfComponent: parent) | type="fragment", props={}, parent=this  | Creates instance of Component class
+| addChildren | (single Component instance or Array) | [] | this | Adds children to the Component instance |
+| removeChild | (Number|Component) | | | |
+| ComponentWillRender | | | | |
+| ComponentDidRender | | | | |
+| ComponentWillUpdate | | | | |
+| ComponentDidUpdate | | | | |
+| static render| | | | |
