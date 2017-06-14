@@ -1,7 +1,7 @@
 {
-  "name": "learn_webpack",
+  "name": "studyepam",
   "version": "1.0.0",
-  "description": "testing project in webpack build system",
+  "description": "homepage for epam study course",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +9,23 @@
     "learn": "webpack",
     "prod": "cross-env NODE_ENV=production webpack -p"
   },
-  "author": "Chep",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlekseyChepurko/studyEpam.git"
+  },
+  "keywords": [
+    "epam",
+    "study",
+    "homepage",
+    "2017",
+    "march"
+  ],
+  "author": "Aleksey Chepurko",
+  "bugs": {
+    "url": "https://github.com/AlekseyChepurko/studyEpam/issues"
+  },
+  "homepage": "https://github.com/AlekseyChepurko/studyEpam#readme",
+
   "license": "MIT",
   "devDependencies": {
     "babel-loader": "^7.0.0",
