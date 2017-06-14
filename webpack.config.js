@@ -85,7 +85,7 @@ module.exports = {
     module: {
         rules: [
             {test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
-            {test: /\.pug/, use: ['raw-loader','pug-html-loader']},
+            {test: /\.pug/, use: ['html-loader','pug-html-loader']},
             {test: /\.s[ac]ss$/,use: extractSass.extract({use:
                 [{loader: "css-loader",}, {loader: "sass-loader"}],fallback: "style-loader"})},
             {test: /\.css$/,use: ['style-loader','css-loader']},
