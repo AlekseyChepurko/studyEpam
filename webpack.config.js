@@ -29,8 +29,6 @@ const paths = {
     images: './src/img/'
 };
 
-console.log(process.env.NODE_ENV);
-
 const plugins = [
     extractSass,
     new webpack.optimize.CommonsChunkPlugin({
@@ -86,44 +84,16 @@ module.exports = {
     plugins: plugins,
     module: {
         rules: [
-            {
-                test: /\.pug/,
-                use: [
-                    'pug-loader',
-                ]
-            },
-            {
-                test: /\.s[ac]ss$/,
-                use: extractSass.extract({
-                    use: [{
-                        loader: "css-loader",
-                    }, {
-                        loader: "sass-loader"
-                    }],
-                    // use style-loader in development
-                    fallback: "style-loader"
-                })
-            },
-            {
-                test: /\.css$/,
-                use: [
-                    'style-loader',
-                    'css-loader'
-                ]
-            },
-            {
-                test: /\.(png|svg|jpg|gif)$/,
-                use: [
+            {test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
+            {test: /\.pug/, use: ['raw-loader','pug-html-loader']},
+            {test: /\.s[ac]ss$/,use: extractSass.extract({use:
+                [{loader: "css-loader",}, {loader: "sass-loader"}],fallback: "style-loader"})},
+            {test: /\.css$/,use: ['style-loader','css-loader']},
+            {test: /\.(png|svg|jpg|gif)$/,use: [
                     'file-loader?hash=sha512&digest=hex&name=[hash].[ext]&outputPath=assets/imgs/',
-                    'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
-                ]
-            },
-            {
-                test: /\.(woff|woff2|eot|ttf|otf)$/,
-                use: [
-                    'file-loader?name=[name].[ext]&outputPath=assets/fonts/'
-                ]
-            }
+                    'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false']},
+            {test: /\.(woff|woff2|eot|ttf|otf)$/,use: [
+                    'file-loader?name=assets/fonts/[name].[ext]&publicPath=/']}
         ]
     },
     devServer: {
