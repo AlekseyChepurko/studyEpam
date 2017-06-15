@@ -99,8 +99,9 @@ export class Component {
      */
     static render(element ,dest) {
         if(!('render' in element))
-            if(element.constructor.name !== "Component")
+            if(element.constructor.name !== Component.name) {
                 throw new SyntaxError("Every Component instance that extends Component has to define method render()");
+            }
             else {}
         else
             element.addChildren(element.render());
