@@ -12,10 +12,11 @@ Demo
 Run:
 
     npm i
-    gulp
+    npm run dev
+    npm run prod
     
 Technologies:
-* Build - Gulp with babel
+* Build - webpack 2
 * Static templates - Pug
 * Styles - SASS
 * Visual dynamic - VanilaJS
