@@ -86,7 +86,7 @@ module.exports = {
             {test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
             {test: /\.pug/, use: ['html-loader','pug-html-loader']},
             {test: /\.s[ac]ss$/,use: extractSass.extract({use:
-                [{loader: "css-loader",}, {loader: "sass-loader"}],fallback: "style-loader"})},
+                [{loader: "css-loader",},{ loader: 'postcss-loader', options: { sourceMap: true } }, {loader: "sass-loader"}],fallback: "style-loader"})},
             {test: /\.css$/,use: ['style-loader','css-loader']},
             {test: /\.(png|svg|jpg|gif)$/,use: [
                     'file-loader?hash=sha512&digest=hex&name=[hash].[ext]&outputPath=assets/imgs/',
