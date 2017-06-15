@@ -6,7 +6,7 @@
 </p>
 
 Demo
-* [One](http://alekseychepurko.github.io/)
+* [One](http://alekseychepurko.github.io/main.html)
 * [Two](http://alekseychepurko.github.io/odm.html)
 
 Run:
