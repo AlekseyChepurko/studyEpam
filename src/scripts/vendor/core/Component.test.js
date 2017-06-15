@@ -5,7 +5,7 @@
 import test from './test'
 import Sugard,{Component, render} from './Component'
 
-export default function tests(){
+export function run(){
     test("Child addition",(()=>{
         let a = new Component(),
             b = new Component('div');

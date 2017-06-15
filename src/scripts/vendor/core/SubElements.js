@@ -2,7 +2,7 @@
  * Created by Алексей on 02.06.2017.
  */
 
-import {classes} from './core/classes'
+import {classes} from './classes'
 
 export const sub_elements = (function () {
 

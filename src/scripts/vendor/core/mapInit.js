@@ -1,4 +1,4 @@
-function initMap() {
+export default function initMap() {
 
     // Create an array of styles.
     var icons = {

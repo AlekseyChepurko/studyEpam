@@ -1,12 +1,6 @@
 /**
  * Created by Алексей on 03.06.2017.
  */
-//
-// export default class Async {
-//
-// }
-
-
 /**
  * Get JSON from url using fetch. After fetch resolving calls callback
  * @param {string} url

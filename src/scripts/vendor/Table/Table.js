@@ -2,7 +2,7 @@
  * Created by Алексей on 02.06.2017.
  */
 
-import {Component} from '../core/Component'
+import {Component} from 'Vendor/core/Component'
 
 export default class Table extends Component{
     constructor(props,) {
