@@ -55,13 +55,13 @@ const pagePlugins = pages.map(item =>
     new HtmlWebpackPlugin({
         template: paths.templates+item+'.pug',
         filename: item+'.html',
-        chunks: ["manifest",item]
+        chunks: ["manifest", "vendor",item]
     })
 );
 plugins.unshift(...pagePlugins);
 
 let entries = {
-    // vendor: ['react'],
+    vendor: [paths.scripts+'common.js', paths.scripts+"vendor/Table/Table.js"],
 };
 
 // TODO wraitable for.... what?
@@ -78,7 +78,6 @@ module.exports = {
         path: path.resolve(__dirname, 'build'),
         filename: "[name].[hash].js",
         chunkFilename: "[name].[hash].js",
-        // publicPath: "/assets/"
     },
     devtool: process.env.NODE_ENV==="production" ? "nosources-source-map" : "cheap-eval-source-map",
     plugins: plugins,
@@ -93,7 +92,9 @@ module.exports = {
                     'file-loader?hash=sha512&digest=hex&name=[hash].[ext]&outputPath=assets/imgs/',
                     'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false']},
             {test: /\.(woff|woff2|eot|ttf|otf)$/,use: [
-                    'file-loader?name=assets/fonts/[name].[ext]&publicPath=/']}
+                    'file-loader?name=assets/fonts/[name].[ext]&publicPath=/']},
+            {test: /\.json$/,use: [
+                'file-loader?name=testData/[name].[ext]&publicPath=/']}
         ]
     },
     devServer: {
@@ -102,13 +103,16 @@ module.exports = {
         stats: "errors-only",
         open: true,
         hot: true,
+        index: 'main.html',
         historyApiFallback: {
             index: 'main.html'
         }
     },
     resolve: {
         alias:{
-            Styles: path.resolve(__dirname, 'src/styles')
+            Styles: path.resolve(__dirname, 'src/styles'),
+            Root: path.resolve(__dirname, 'src'),
+            Vendor: path.resolve(__dirname, paths.scripts+"vendor")
         }
     }
 };
